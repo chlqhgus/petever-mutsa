@@ -1,0 +1,46 @@
+@font-face {
+  font-family: "LINESeedKR";
+  font-weight: 200;
+  font-display: swap;
+  src: url("../assets/fonts/LINESeedKR-Th.otf") format("opentype");
+}
+@font-face {
+  font-family: "LINESeedKR";
+  font-weight: 400;
+  font-display: swap;
+  src: url("../assets/fonts/LINESeedKR-Rg.otf") format("opentype");
+}
+@font-face {
+  font-family: "LINESeedKR";
+  font-weight: 600;
+  font-display: swap;
+  src: url("../assets/fonts/LINESeedKR-Bd.otf") format("opentype");
+}
+@font-face {
+  font-family: "NanumMyeongjo";
+  font-weight: 400;
+  font-display: swap;
+  src: url("../assets/fonts/NanumMyeongjo.otf") format("opentype");
+}
+@font-face {
+  font-family: "NanumMyeongjo";
+  font-weight: 600;
+  font-display: swap;
+  src: url("../assets/fonts/NanumMyeongjoBold.otf") format("opentype");
+}
+@font-face {
+  font-family: "NanumMyeongjo";
+  font-weight: 800;
+  font-display: swap;
+  src: url("../assets/fonts/NanumMyeongjoExtraBold.otf") format("opentype");
+}
+@font-face {
+  font-family: "NanumPen";
+  font-weight: 400;
+  font-display: swap;
+  src: url("../assets/fonts/NanumPen.otf") format("opentype");
+}
+
+/* 
+글꼴이 다운로드되기 전까지, 시스템 글꼴을 사용하다가 다운로드가 완료되면 웹 글꼴을 적용한다
+*/

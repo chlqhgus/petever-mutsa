@@ -1,0 +1,9 @@
+export const Background = "#FAF1EF";
+export const Accent = "#EF7057";
+export const Accent2 = "#FFC04E";
+export const Unselect = "#C5C5C5";
+export const SecondaryText = "#7E7E7E";
+export const SelectFuneral = "#795E49";
+export const BoxFuneral = "#FEF9F5";
+export const ButtonPrimary = "#F26C51";
+export const ButtonSecondary = "#F39A89";
