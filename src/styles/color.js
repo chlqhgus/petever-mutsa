@@ -1,3 +1,4 @@
+export const Text = "#150A08";
 export const Background = "#FAF1EF";
 export const Accent = "#EF7057";
 export const Accent2 = "#FFC04E";

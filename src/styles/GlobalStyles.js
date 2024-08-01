@@ -12,6 +12,7 @@ export const GlobalStyle = createGlobalStyle`
         margin:0;
         padding:0;
         box-sizing:border-box;
+        font-family:"LINESeedKR";
     }
 
     body{
@@ -25,5 +26,6 @@ export const GlobalStyle = createGlobalStyle`
 
     button{
         cursor:pointer;
+        /* font-family:"LINESeedKR"; */
     }
 `;
