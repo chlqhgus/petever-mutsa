@@ -8,7 +8,7 @@ const PostBlock = ({ img, textMain, textSub, onClick }) => {
       <PostImg src={img}></PostImg>
       <PostTextArea>
         <PostTextMain>
-          {textMain.length <= 11 ? textMain : textMain.slice(0, 11) + "..."}
+          {textMain?.length <= 11 ? textMain : textMain?.slice(0, 11) + "..."}
         </PostTextMain>
         {/* 12자 이상일 경우 ...표시와 함께 뒷부분 생략 */}
         <PostTextSub>{textSub}</PostTextSub>
@@ -19,7 +19,7 @@ const PostBlock = ({ img, textMain, textSub, onClick }) => {
 
 export default PostBlock;
 
-export const StyledPostBlock = styled.div`
+const StyledPostBlock = styled.div`
   background-color: white;
   width: 267.75px;
   height: 267.75px;
@@ -30,14 +30,14 @@ export const StyledPostBlock = styled.div`
   cursor: pointer;
 `;
 
-export const PostImg = styled.img`
+const PostImg = styled.img`
   width: 100%;
   height: 60%;
   object-fit: cover;
   border-radius: 30px 30px 0px 0px;
 `;
 
-export const PostTextArea = styled.div`
+const PostTextArea = styled.div`
   font-family: "LINESeedKR";
   position: absolute;
   width: 100%;
@@ -46,13 +46,13 @@ export const PostTextArea = styled.div`
   padding: 30px 20px;
 `;
 
-export const PostTextMain = styled.h3`
+const PostTextMain = styled.h3`
   font-size: 20px;
   font-weight: 700;
   color: ${Text};
   margin-bottom: 10px;
 `;
-export const PostTextSub = styled.h5`
+const PostTextSub = styled.h5`
   font-size: 15px;
   font-weight: 400;
   color: ${SecondaryText};
