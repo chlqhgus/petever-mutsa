@@ -29,7 +29,7 @@ const SideBar = () => {
     }
   };
   return (
-    <>
+    <div>
       <SideBarWrapper>
         <StyledSideBar className={isExtended ? "extendedBar" : ""}>
           <div className="menuWrapper">
@@ -109,9 +109,9 @@ const SideBar = () => {
             </IconWrapper>
           </IconSectionWrapper>
         </StyledSideBar>
+        <BackgroundDiv></BackgroundDiv>
       </SideBarWrapper>
-      <BackgroundDiv></BackgroundDiv>
-    </>
+    </div>
   );
 };
 
@@ -120,9 +120,9 @@ export default SideBar;
 const SideBarWrapper = styled.div`
   .extendedBar {
     width: 21%;
-    z-index: 1;
+    z-index: 3;
   }
-  z-index: -1;
+  z-index: 0;
 `;
 
 const StyledSideBar = styled.div`
@@ -218,5 +218,5 @@ const BackgroundDiv = styled.div`
   position: fixed;
   margin-left: 7vw;
   background-color: rgba(0, 0, 0, 0);
-  z-index: 0;
+  z-index: -1;
 `;
