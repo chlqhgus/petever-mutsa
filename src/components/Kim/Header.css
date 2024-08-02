@@ -1,0 +1,21 @@
+.Head {
+  display: flex;
+  flex-direction: column;
+  padding: 90px 100px 50px 100px;
+  gap: 50px;
+}
+
+.Header {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.ctc {
+  color: #f26c51;
+}
+
+.detail {
+  font-size: 20px;
+  color: #7E7E7E;
+}

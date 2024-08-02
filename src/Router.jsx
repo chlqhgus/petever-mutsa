@@ -4,6 +4,7 @@ import MemorialMain from "./pages/MemorialMain";
 import MemoralDetail from "./pages/MemoralDetail";
 import SideBar from "./components/common/SideBar";
 import MemorialNew from "./pages/MemorialNew";
+import FuneralLocation from "./pages/FuneralLocation";
 
 function Router() {
   return (
@@ -13,6 +14,7 @@ function Router() {
         <Route path="/memorialMain" element={<MemorialMain />}></Route>
         <Route path="/memorialNew" element={<MemorialNew />}></Route>
         <Route path="/memorialDetail" element={<MemoralDetail />}></Route>
+        <Route path="/funeralLocation" element={<FuneralLocation />}></Route>
       </Routes>
     </BrowserRouter>
   );
