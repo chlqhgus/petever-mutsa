@@ -1,18 +1,18 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import FuneralMain from "./pages/FuneralMain";
-import FuneralDetail from "./pages/FuneralDetail";
+import MemorialMain from "./pages/MemorialMain";
+import MemoralDetail from "./pages/MemoralDetail";
 import SideBar from "./components/common/SideBar";
-import FuneralNew from "./pages/FuneralNew";
+import MemorialNew from "./pages/MemorialNew";
 
 function Router() {
   return (
     <BrowserRouter>
-    <SideBar></SideBar>
+      <SideBar></SideBar>
       <Routes>
-        <Route path="/funeralMain" element={<FuneralMain />}></Route>
-        <Route path="/funeralNew" element={<FuneralNew />}></Route>
-        <Route path="/funeralDetail" element={<FuneralDetail />}></Route>
+        <Route path="/memorialMain" element={<MemorialMain />}></Route>
+        <Route path="/memorialNew" element={<MemorialNew />}></Route>
+        <Route path="/memorialDetail" element={<MemoralDetail />}></Route>
       </Routes>
     </BrowserRouter>
   );
