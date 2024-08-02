@@ -1,17 +1,17 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import FuneralMain from "./pages/FuneralMain";
-import FuneralNewFirst from "./pages/FuneralNewFirst";
-import FuneralNewSecond from "./pages/FuneralNewSecond";
 import FuneralDetail from "./pages/FuneralDetail";
+import SideBar from "./components/common/SideBar";
+import FuneralNew from "./pages/FuneralNew";
 
 function Router() {
   return (
     <BrowserRouter>
+    <SideBar></SideBar>
       <Routes>
         <Route path="/funeralMain" element={<FuneralMain />}></Route>
-        <Route path="/funeralNewFirst" element={<FuneralNewFirst />}></Route>
-        <Route path="/funeralNewSecond" element={<FuneralNewSecond />}></Route>
+        <Route path="/funeralNew" element={<FuneralNew />}></Route>
         <Route path="/funeralDetail" element={<FuneralDetail />}></Route>
       </Routes>
     </BrowserRouter>
