@@ -6,13 +6,12 @@ import iconPaw from "../../assets/icon/iconPaw.png";
 import iconFuneral from "../../assets/icon/iconFuneral.png";
 import iconMy from "../../assets/icon/iconMy.png";
 import styled from "styled-components";
-import { useLocation, useNavigate, useParams } from "react-router-dom";
-import { SecondaryText, Text, ButtonSecondary } from "../../styles/color";
+import { useLocation, useNavigate } from "react-router-dom";
+import { SecondaryText, ButtonSecondary } from "../../styles/color";
 
 const SideBar = () => {
   const nav = useNavigate();
   const location = useLocation();
-  console.log(location.pathname);
   const [isExtended, SetIsExtended] = useState(false);
   return (
     <SideBarWrapper>
@@ -46,10 +45,10 @@ const SideBar = () => {
           </IconWrapper>
           <IconWrapper
             onClick={() => {
-              nav("/funeralMain");
+              nav("/memorialMain");
             }}
             className={
-              location.pathname.includes("funeral") ? "currentPage" : ""
+              location.pathname.includes("memorial") ? "currentPage" : ""
             }
           >
             <IconImg src={iconPaw}></IconImg>
