@@ -11,11 +11,11 @@ const Button = ({ text, color, onClick }) => {
 
 export default Button;
 
-export const StyledButton = styled.button`
-  width: 191px;
+const StyledButton = styled.button`
+  width: 190px;
   height: 51px;
   background: ${(props) => props.color};
-  box-shadow: 0 px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   padding: 10px 20px;
   border: none;
   border-radius: 10px;
@@ -23,4 +23,10 @@ export const StyledButton = styled.button`
   font-size: 23px;
   font-weight: 700;
   flex-shrink: 0;
+
+  @media screen and (max-width: 400px) {
+    width: 100px;
+    height: 25px;
+    font-size: 10px;
+  }
 `;
