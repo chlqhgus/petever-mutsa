@@ -13,84 +13,121 @@ const SideBar = () => {
   const nav = useNavigate();
   const location = useLocation();
   const [isExtended, SetIsExtended] = useState(false);
+
+  const deleteText = () => {
+    if (!isExtended) {
+      const sideText = document.querySelectorAll(".hideText");
+      sideText.forEach((item) => {
+        item.innerText = "";
+      });
+      console.log(sideText);
+    } else {
+      const sideText = document.querySelectorAll(".showText");
+      sideText.forEach((item) => {
+        item.innerText = item.id;
+      });
+    }
+  };
   return (
-    <SideBarWrapper>
-      <StyledSideBar className={isExtended ? "extendedBar" : ""}>
-        <div className="menuWrapper">
-          <MenuImg
-            src={iconMenu}
-            onClick={() => {
-              SetIsExtended(!isExtended);
-            }}
-          ></MenuImg>
-        </div>
-        <IconSectionWrapper>
-          <IconWrapper
-            onClick={() => {
-              nav("/");
-            }}
-          >
-            <IconImg src={iconHome}></IconImg>
-            <div className={isExtended ? "showText" : "hideText"}>홈</div>
-          </IconWrapper>
-          <IconWrapper
-            onClick={() => {
-              nav("/");
-            }}
-          >
-            <IconImg src={iconDiary}></IconImg>
-            <div className={isExtended ? "showText" : "hideText"}>
-              일기 작성하기
-            </div>
-          </IconWrapper>
-          <IconWrapper
-            onClick={() => {
-              nav("/memorialMain");
-            }}
-            className={
-              location.pathname.includes("memorial") ? "currentPage" : ""
-            }
-          >
-            <IconImg src={iconPaw}></IconImg>
-            <div className={isExtended ? "showText" : "hideText"}>
-              추모공간 입장하기
-            </div>
-          </IconWrapper>
-          <IconWrapper
-            onClick={() => {
-              nav("/");
-            }}
-          >
-            <IconImg src={iconFuneral}></IconImg>
-            <div className={isExtended ? "showText" : "hideText"}>
-              장례식장 찾기
-            </div>
-          </IconWrapper>
-          <IconWrapper
-            onClick={() => {
-              nav("/");
-            }}
-          >
-            <IconImg src={iconMy}></IconImg>
-            <div className={isExtended ? "showText" : "hideText"}>
-              MY 페이지
-            </div>
-          </IconWrapper>
-        </IconSectionWrapper>
-      </StyledSideBar>
-    </SideBarWrapper>
+    <>
+      <SideBarWrapper>
+        <StyledSideBar className={isExtended ? "extendedBar" : ""}>
+          <div className="menuWrapper">
+            <MenuImg
+              src={iconMenu}
+              onClick={() => {
+                SetIsExtended(!isExtended);
+                // deleteText();
+              }}
+            ></MenuImg>
+          </div>
+          <IconSectionWrapper>
+            <IconWrapper
+              onClick={() => {
+                nav("/");
+              }}
+            >
+              <IconImg src={iconHome}></IconImg>
+              <div id="홈" className={isExtended ? "showText" : "hideText"}>
+                홈
+              </div>
+            </IconWrapper>
+            <IconWrapper
+              onClick={() => {
+                nav("/");
+              }}
+            >
+              <IconImg src={iconDiary}></IconImg>
+              <div
+                id="일기 작성하기"
+                className={isExtended ? "showText" : "hideText"}
+              >
+                일기 작성하기
+              </div>
+            </IconWrapper>
+            <IconWrapper
+              onClick={() => {
+                nav("/memorialMain");
+              }}
+              className={
+                location.pathname.includes("memorial") ? "currentPage" : ""
+              }
+            >
+              <IconImg src={iconPaw}></IconImg>
+              <div
+                id="추모공간 입장하기"
+                className={isExtended ? "showText" : "hideText"}
+              >
+                추모공간 입장하기
+              </div>
+            </IconWrapper>
+            <IconWrapper
+              onClick={() => {
+                nav("/");
+              }}
+            >
+              <IconImg src={iconFuneral}></IconImg>
+              <div
+                id="장례식장 찾기"
+                className={isExtended ? "showText" : "hideText"}
+              >
+                장례식장 찾기
+              </div>
+            </IconWrapper>
+            <IconWrapper
+              onClick={() => {
+                nav("/");
+              }}
+            >
+              <IconImg src={iconMy}></IconImg>
+              <div
+                id="MY 페이지"
+                className={isExtended ? "showText" : "hideText"}
+              >
+                MY 페이지
+              </div>
+            </IconWrapper>
+          </IconSectionWrapper>
+        </StyledSideBar>
+      </SideBarWrapper>
+      <BackgroundDiv></BackgroundDiv>
+    </>
   );
 };
 
 export default SideBar;
 
-export const SideBarWrapper = styled.div`
+const SideBarWrapper = styled.div`
   .extendedBar {
     width: 21%;
+    z-index: 1;
   }
+  z-index: -1;
 `;
 
-export const StyledSideBar = styled.div`
+const StyledSideBar = styled.div`
+  background-color: white;
+
   width: 7%;
   transition: width 0.5s;
   height: 100vh;
@@ -110,7 +147,7 @@ export const StyledSideBar = styled.div`
   }
 `;
 
-export const MenuImg = styled.img`
+const MenuImg = styled.img`
   width: 3.5vw;
   flex-shrink: 0;
   cursor: pointer;
@@ -119,12 +156,12 @@ export const MenuImg = styled.img`
   }
 `;
 
-export const IconImg = styled.img`
+const IconImg = styled.img`
   width: 2vw;
   flex-shrink: 0;
 `;
 
-export const IconSectionWrapper = styled.div`
+const IconSectionWrapper = styled.div`
   width: 18vw;
   display: flex;
   flex-direction: column;
@@ -140,7 +177,7 @@ export const IconSectionWrapper = styled.div`
   }
 `;
 
-export const IconWrapper = styled.div`
+const IconWrapper = styled.div`
   display: flex;
   font-size: 1.3vw;
   font-weight: 700;
@@ -164,6 +201,8 @@ export const IconWrapper = styled.div`
     opacity: 0;
     transition: opacity 0.2s linear;
     cursor: default;
+    /* visibility: hidden; */
+    /* width: 1vw; */
   }
 
   .showText {
@@ -171,4 +210,13 @@ export const IconWrapper = styled.div`
     transition: opacity 0.2s linear 0.2s;
     cursor: pointer;
   }
+`;
+
+const BackgroundDiv = styled.div`
+  width: 93vw;
+  height: 100vh;
+  position: fixed;
+  margin-left: 7vw;
+  background-color: rgba(0, 0, 0, 0);
+  z-index: 0;
 `;
