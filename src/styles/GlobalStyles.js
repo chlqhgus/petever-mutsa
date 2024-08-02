@@ -17,6 +17,8 @@ export const GlobalStyle = createGlobalStyle`
 
     body{
         font-family:"LINESeedKR";
+        min-height:100vh;
+        width:100%;
     }
 
     input{
