@@ -4,6 +4,7 @@ import MemorialMain from "./pages/MemorialMain";
 import MemoralDetail from "./pages/MemoralDetail";
 import SideBar from "./components/common/SideBar";
 import MemorialNew from "./pages/MemorialNew";
+import styled from "styled-components";
 
 function Router() {
   return (

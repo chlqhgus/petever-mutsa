@@ -1,7 +1,7 @@
 import React from "react";
 
-const FuneralNew = () => {
+const MemorialNew = () => {
   return <div>funeral new</div>;
 };
 
-export default FuneralNew;
+export default MemorialNew;
