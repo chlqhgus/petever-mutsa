@@ -83,7 +83,7 @@ const SideBar = () => {
             </IconWrapper>
             <IconWrapper
               onClick={() => {
-                nav("/");
+                nav("/funeralLocation");
               }}
             >
               <IconImg src={iconFuneral}></IconImg>

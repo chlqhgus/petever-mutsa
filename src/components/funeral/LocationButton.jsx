@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./LocationButton.css";
-import "../common/PostBlock";
 import PostBlock from "../common/PostBlock";
+import { useNavigate } from "react-router-dom";
 
 const LocationButton = ({ locations }) => {
   const [area, setArea] = useState("");
@@ -14,6 +14,20 @@ const LocationButton = ({ locations }) => {
 
   const filteredLocations = () => {
     return locations.filter((location) => location.region === area);
+  };
+
+  const nav = useNavigate();
+
+  const onClickButton = (item) => {
+    nav("/funeralLocationDetail", {
+      state: {
+        img: `${item.image}`,
+        title: `${item.name}`,
+        address: `${item.address}`,
+        phonenum: `${item.phone}`,
+        link: `${item.website}`,
+      },
+    });
   };
 
   return (
@@ -66,6 +80,7 @@ const LocationButton = ({ locations }) => {
               img={item.image}
               textMain={item.name}
               textSub={item.address}
+              onClick={() => onClickButton(item)}
             />
           );
         })}

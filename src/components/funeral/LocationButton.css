@@ -5,6 +5,7 @@
 }
 
 .LocationButton button{
+    cursor: pointer;
     padding: 15px;
     width: 130px;
     color: #C5C5C5;

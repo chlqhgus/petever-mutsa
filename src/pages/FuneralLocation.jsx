@@ -1,5 +1,5 @@
-import Header from "../components/Kim/Header";
-import LocationButton from "../components/Kim/LocationButton";
+import Header from "../components/funeral/Header";
+import LocationButton from "../components/funeral/LocationButton";
 
 const FuneralLocation = () => {
   const locations = [
@@ -38,7 +38,7 @@ const FuneralLocation = () => {
     },
     {
       id: 4,
-      name: "강아지아지",
+      name: "고양이",
       region: "수도권",
       address: "경기도 광주시 오포읍 매자리길 185-35",
       phone: "1688-1240",
@@ -49,8 +49,8 @@ const FuneralLocation = () => {
     },
     {
       id: 5,
-      name: "강아지아지",
-      region: "수도권",
+      name: "호랑이",
+      region: "호남권",
       address: "경기도 광주시 오포읍 매자리길 185-35",
       phone: "1688-1240",
       image:
@@ -60,8 +60,8 @@ const FuneralLocation = () => {
     },
     {
       id: 6,
-      name: "강아지아지",
-      region: "수도권",
+      name: "원숭이",
+      region: "영남권",
       address: "경기도 광주시 오포읍 매자리길 185-35",
       phone: "1688-1240",
       image:
@@ -71,8 +71,8 @@ const FuneralLocation = () => {
     },
     {
       id: 7,
-      name: "강아지아지",
-      region: "수도권",
+      name: "고릴라",
+      region: "강원권",
       address: "경기도 광주시 오포읍 매자리길 185-35",
       phone: "1688-1240",
       image:
@@ -82,8 +82,8 @@ const FuneralLocation = () => {
     },
     {
       id: 8,
-      name: "강아지아지",
-      region: "수도권",
+      name: "기린",
+      region: "충청권",
       address: "경기도 광주시 오포읍 매자리길 185-35",
       phone: "1688-1240",
       image:
