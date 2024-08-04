@@ -1,0 +1,27 @@
+.upload-section {
+  display: flex; /* Flexbox 사용 */
+  justify-content: flex-start; /* 요소를 왼쪽 정렬 */
+  align-items: center; /* 수직 정렬 */
+  margin-left: 7%;
+  padding-left: 64px;
+}
+
+.upload-box {
+  margin-right: 20px; /* 업로드 박스와 텍스트 박스 사이에 간격 추가 */
+}
+
+.upload-textbox textarea {
+  border: none;
+  width: 500px; /* 텍스트 영역 너비 설정 */
+  height: 326px;
+  flex-shrink: 0;
+  border-radius: 30px;
+  background: #fff;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.1) inset,
+    0px 4px 4px 0px rgba(0, 0, 0, 0.15);
+
+  color: var(--unselect, #150a08);
+  padding: 25px; /* 텍스트 영역 안쪽 여백 추가 */
+  font-size: 16px; /* 텍스트 크기 설정 */
+  resize: none; /* 사용자가 크기 조정 못하게 설정 */
+}

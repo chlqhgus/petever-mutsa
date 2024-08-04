@@ -7,6 +7,8 @@ import MemorialNew from "./pages/MemorialNew";
 import styled from "styled-components";
 
 import LandingPage from "./pages/LandingPage";
+import DiaryQuestion from "./pages/DiaryQuestion";
+import DiaryLetter from "./pages/DiaryLetter";
 
 function Router() {
   return (
@@ -17,6 +19,8 @@ function Router() {
       <PageDiv>
         <Routes>
           <Route path="/landingPage" element={<LandingPage />}></Route>
+          <Route path="/diaryQuestion" element={<DiaryQuestion />}></Route>
+          <Route path="/diaryLetter" element={<DiaryLetter />}></Route>
           <Route path="/memorialMain" element={<MemorialMain />}></Route>
           <Route path="/memorialNew" element={<MemorialNew />}></Route>
           <Route path="/memorialDetail" element={<MemoralDetail />}></Route>

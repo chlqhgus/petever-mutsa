@@ -45,8 +45,11 @@ const SideBar = () => {
             <IconWrapper
               width={isExtended ? "210px" : "50px"}
               onClick={() => {
-                nav("/");
+                nav("/diaryQuestion");
               }}
+              className={
+                location.pathname.includes("diary") ? "currentPage" : ""
+              }
             >
               <IconImg src={iconDiary}></IconImg>
               <div className={isExtended ? "showText" : "hideText"}>
