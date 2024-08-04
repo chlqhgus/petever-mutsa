@@ -9,14 +9,27 @@ import styled from "styled-components";
 function Router() {
   return (
     <BrowserRouter>
-      <SideBar></SideBar>
-      <Routes>
-        <Route path="/memorialMain" element={<MemorialMain />}></Route>
-        <Route path="/memorialNew" element={<MemorialNew />}></Route>
-        <Route path="/memorialDetail/:id" element={<MemoralDetail />}></Route>
-      </Routes>
+      <SideBarDiv>
+        <SideBar></SideBar>
+      </SideBarDiv>
+      <PageDiv>
+        <Routes>
+          <Route path="/memorialMain" element={<MemorialMain />}></Route>
+          <Route path="/memorialNew" element={<MemorialNew />}></Route>
+          <Route path="/memorialDetail" element={<MemoralDetail />}></Route>
+        </Routes>
+      </PageDiv>
     </BrowserRouter>
   );
 }
 
 export default Router;
+
+const SideBarDiv = styled.div`
+  position: relative;
+  z-index: 2;
+`;
+const PageDiv = styled.div`
+  position: relative;
+  z-index: 1;
+`;
