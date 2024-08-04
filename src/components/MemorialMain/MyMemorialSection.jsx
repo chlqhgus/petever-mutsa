@@ -56,7 +56,7 @@ const SectionWrapper = styled.div`
   background-color: #f6f5f4;
 `;
 
-const TextWrapper = styled.div`
+ const TextWrapper = styled.div`
   padding: 88px;
 
   display: flex;
