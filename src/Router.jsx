@@ -11,26 +11,17 @@ import LandingPage from "./pages/LandingPage";
 function Router() {
   return (
     <BrowserRouter>
-<<<<<<< HEAD
-      <SideBar></SideBar>
-      <Routes>
-        <Route path="/landingPage" element={<LandingPage />}></Route>
-        <Route path="/memorialMain" element={<MemorialMain />}></Route>
-        <Route path="/memorialNew" element={<MemorialNew />}></Route>
-        <Route path="/memorialDetail/:id" element={<MemoralDetail />}></Route>
-      </Routes>
-=======
       <SideBarDiv>
         <SideBar></SideBar>
       </SideBarDiv>
       <PageDiv>
         <Routes>
+          <Route path="/landingPage" element={<LandingPage />}></Route>
           <Route path="/memorialMain" element={<MemorialMain />}></Route>
           <Route path="/memorialNew" element={<MemorialNew />}></Route>
           <Route path="/memorialDetail" element={<MemoralDetail />}></Route>
         </Routes>
       </PageDiv>
->>>>>>> origin/common
     </BrowserRouter>
   );
 }
