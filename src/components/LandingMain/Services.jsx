@@ -25,7 +25,9 @@ const Services = () => {
           </div>
           <div className="service-card">
             <h1>🏡</h1>
-            <h3><span class="accent">따뜻한 </span>기억으로 가득한 공간</h3>
+            <h3>
+              <span class="accent">따뜻한 </span>기억으로 가득한 공간
+            </h3>
             <p>먼 여행을 떠난 반려동물과의 추억을</p>
             <p>언제든지 돌아볼 수 있는 공간이예요.</p>
             <p>
@@ -34,7 +36,9 @@ const Services = () => {
           </div>
           <div className="service-card">
             <h1>🐾</h1>
-            <h3><span class="accent">소중한 </span>이별의 준비</h3>
+            <h3>
+              <span class="accent">소중한 </span>이별의 준비
+            </h3>
             <p>신뢰할 수 있는 반려동물 장례식장 정보를 제공합니다.</p>
             <p>소중한 반려동물의 마지막 순간을 </p>
             <p>아름답게 준비할 수 있도록 도와드릴게요.</p>

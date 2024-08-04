@@ -1,12 +1,57 @@
 .footer {
   text-align: center;
   padding: 20px;
+  margin-left :7%;
+  padding-bottom:140px;
+}
+
+.footer h1 {
+  padding-top:176px;
+  padding-bottom:76px;
+  color: #000;
+  text-align: center;
+  font-family: "LINE Seed Sans KR";
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 22px; /* 55% */
+  letter-spacing: -0.5px;
+}
+
+.footer-content {
+  padding-bottom:67px;
+}
+
+
+.footer-content p {
+
+  color: var(--text, #150A08);
+  text-align: center;
+  font-family: "LINE Seed Sans KR";
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: -1px;
 }
 
 .footer button {
-  background-color: #ff6347;
+  border-radius: 50px;
+  background: var(--buttons-secondary, #F39A89);
   color: #fff;
   border: none;
   padding: 10px 20px;
   cursor: pointer;
+  width : 229px;
+  height: 75px;
+  align-self: stretch;
+
+  color: #FFF;
+  text-align: center;
+  font-family: "LINE Seed Sans KR";
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: -1px;
 }
