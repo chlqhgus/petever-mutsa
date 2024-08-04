@@ -5,11 +5,14 @@ import MemoralDetail from "./pages/MemoralDetail";
 import SideBar from "./components/common/SideBar";
 import MemorialNew from "./pages/MemorialNew";
 
+import LandingPage from "./pages/LandingPage";
+
 function Router() {
   return (
     <BrowserRouter>
       <SideBar></SideBar>
       <Routes>
+        <Route path="/landingPage" element={<LandingPage />}></Route>
         <Route path="/memorialMain" element={<MemorialMain />}></Route>
         <Route path="/memorialNew" element={<MemorialNew />}></Route>
         <Route path="/memorialDetail" element={<MemoralDetail />}></Route>

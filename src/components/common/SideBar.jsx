@@ -44,8 +44,11 @@ const SideBar = () => {
           <IconSectionWrapper>
             <IconWrapper
               onClick={() => {
-                nav("/");
+                nav("/landingPage");
               }}
+              className={
+                location.pathname.includes("landing") ? "currentPage" : ""
+              }
             >
               <IconImg src={iconHome}></IconImg>
               <div id="홈" className={isExtended ? "showText" : "hideText"}>
