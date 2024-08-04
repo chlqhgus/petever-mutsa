@@ -27,7 +27,7 @@ const SideBar = () => {
               }}
             ></MenuImg>
           </div>
-          <IconSectionWrapper>
+          <IconSectionWrapper width={isExtended ? "210px" : "50px"}>
             <IconWrapper
               width={isExtended ? "210px" : "50px"}
               onClick={() => {
@@ -145,7 +145,7 @@ const IconImg = styled.img`
 `;
 
 const IconSectionWrapper = styled.div`
-  width: 100%;
+  width: ${(props) => props.width};
   padding-left: 30px;
 
   /* display: flex;
