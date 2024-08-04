@@ -4,7 +4,7 @@
   gap: 20px;
   width: 500px;
   margin: 0 auto;
-  height: 754px;
+  margin-top: 200px;
 }
 
 .Login > h1 {
@@ -17,7 +17,7 @@
   padding: 20px;
   border: 1px solid #c5c5c5;
   border-radius: 10px;
-  color: #c5c5c5;
+  color: black;
 }
 
 .orange {
@@ -46,9 +46,13 @@
 
 p {
   display: flex;
-  gap: 10px;
+  gap: 8px;
   justify-content: center;
   align-items: center;
+}
+
+.pf {
+  font-size: 15px;
 }
 
 .su {

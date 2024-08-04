@@ -5,7 +5,7 @@ const Login = () => {
   const nav = useNavigate();
 
   const onClickSignup = () => {
-    nav("/signup")
+    nav("/signup");
   };
   return (
     <div className="Login">
@@ -18,7 +18,7 @@ const Login = () => {
       <button className="E-login">이메일로 로그인하기</button>
       <hr class="one"></hr>
       <p>
-        PETEVER가 처음이시라면{" "}
+        <span className="pf">PETEVER가 처음이시라면</span>
         <button onClick={onClickSignup} className="su">
           회원가입
         </button>

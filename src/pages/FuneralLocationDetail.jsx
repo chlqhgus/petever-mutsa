@@ -1,5 +1,6 @@
 import "./FuneralLocationDetail.css";
 import { useLocation } from "react-router-dom";
+import sampleimg from "../img/sample.png";
 
 const FuneralLocationDetail = () => {
   const location = useLocation();
@@ -9,7 +10,7 @@ const FuneralLocationDetail = () => {
   return (
     <div className="container">
       <div className="header">
-        <img className="header-img" src={img} alt={title} />
+        <img className="header-img" src={sampleimg} alt={title} />
         <div className="header-content">
           <h1>{title}</h1>
           <p>{address}</p>
