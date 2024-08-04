@@ -14,20 +14,6 @@ const SideBar = () => {
   const location = useLocation();
   const [isExtended, SetIsExtended] = useState(false);
 
-  const deleteText = () => {
-    if (!isExtended) {
-      const sideText = document.querySelectorAll(".hideText");
-      sideText.forEach((item) => {
-        item.innerText = "";
-      });
-      console.log(sideText);
-    } else {
-      const sideText = document.querySelectorAll(".showText");
-      sideText.forEach((item) => {
-        item.innerText = item.id;
-      });
-    }
-  };
   return (
     <div>
       <SideBarWrapper>
@@ -43,29 +29,29 @@ const SideBar = () => {
           </div>
           <IconSectionWrapper>
             <IconWrapper
+              width={isExtended ? "210px" : "50px"}
               onClick={() => {
                 nav("/");
               }}
             >
               <IconImg src={iconHome}></IconImg>
-              <div id="홈" className={isExtended ? "showText" : "hideText"}>
-                홈
+              <div className={isExtended ? "showText" : "hideText"}>
+                {isExtended && <div>홈</div>}
               </div>
             </IconWrapper>
             <IconWrapper
+              width={isExtended ? "210px" : "50px"}
               onClick={() => {
                 nav("/");
               }}
             >
               <IconImg src={iconDiary}></IconImg>
-              <div
-                id="일기 작성하기"
-                className={isExtended ? "showText" : "hideText"}
-              >
-                일기 작성하기
+              <div className={isExtended ? "showText" : "hideText"}>
+                {isExtended && <div>일기 작성하기</div>}
               </div>
             </IconWrapper>
             <IconWrapper
+              width={isExtended ? "210px" : "50px"}
               onClick={() => {
                 nav("/memorialMain");
               }}
@@ -74,42 +60,35 @@ const SideBar = () => {
               }
             >
               <IconImg src={iconPaw}></IconImg>
-              <div
-                id="추모공간 입장하기"
-                className={isExtended ? "showText" : "hideText"}
-              >
-                추모공간 입장하기
+              <div className={isExtended ? "showText" : "hideText"}>
+                {isExtended && <div>추모공간 입장하기</div>}
               </div>
             </IconWrapper>
             <IconWrapper
+              width={isExtended ? "210px" : "50px"}
               onClick={() => {
                 nav("/");
               }}
             >
               <IconImg src={iconFuneral}></IconImg>
-              <div
-                id="장례식장 찾기"
-                className={isExtended ? "showText" : "hideText"}
-              >
-                장례식장 찾기
+              <div className={isExtended ? "showText" : "hideText"}>
+                {isExtended && <div>장례식장 찾기</div>}
               </div>
             </IconWrapper>
             <IconWrapper
+              width={isExtended ? "210px" : "50px"}
               onClick={() => {
                 nav("/");
               }}
             >
               <IconImg src={iconMy}></IconImg>
-              <div
-                id="MY 페이지"
-                className={isExtended ? "showText" : "hideText"}
-              >
-                MY 페이지
+              <div className={isExtended ? "showText" : "hideText"}>
+                {isExtended && <div>MY 페이지</div>}
               </div>
             </IconWrapper>
           </IconSectionWrapper>
         </StyledSideBar>
-        <BackgroundDiv></BackgroundDiv>
+        {/* <BackgroundDiv></BackgroundDiv> */}
       </SideBarWrapper>
     </div>
   );
@@ -119,16 +98,14 @@ export default SideBar;
 
 const SideBarWrapper = styled.div`
   .extendedBar {
-    width: 21%;
-    z-index: 3;
+    width: 240px;
   }
-  z-index: 0;
 `;
 
 const StyledSideBar = styled.div`
   background-color: white;
 
-  width: 7%;
+  width: 80px;
   transition: width 0.5s;
   height: 100vh;
   flex-shrink: 0;
@@ -137,18 +114,21 @@ const StyledSideBar = styled.div`
   gap: 40px;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   position: fixed;
+
   .menuWrapper {
     width: 7vw;
+    padding-left: 20px;
+
     height: 20%;
     display: flex;
     flex-direction: column;
-    align-items: center;
+
     justify-content: center;
   }
 `;
 
 const MenuImg = styled.img`
-  width: 3.5vw;
+  width: 40px;
   flex-shrink: 0;
   cursor: pointer;
   &:hover {
@@ -157,17 +137,21 @@ const MenuImg = styled.img`
 `;
 
 const IconImg = styled.img`
-  width: 2vw;
+  width: 23px;
   flex-shrink: 0;
 `;
 
 const IconSectionWrapper = styled.div`
-  width: 18vw;
-  display: flex;
-  flex-direction: column;
-  gap: 60px;
-  margin-left: 2.5vw;
+  width: 100%;
+  padding-left: 30px;
 
+  /* display: flex;
+  flex-direction: column;
+  gap: 60px; */
+  /* margin-left: 2.5vw; */
+  /* text-align: center; */
+  position: fixed;
+  margin-top: 150px;
   .currentPage {
     color: ${ButtonSecondary};
     img {
@@ -178,8 +162,11 @@ const IconSectionWrapper = styled.div`
 `;
 
 const IconWrapper = styled.div`
+  margin-bottom: 60px;
+
+  width: ${(props) => props.width};
   display: flex;
-  font-size: 1.3vw;
+  font-size: 15px;
   font-weight: 700;
   color: ${SecondaryText};
   &:hover {
@@ -193,13 +180,13 @@ const IconWrapper = styled.div`
   align-items: center;
   cursor: pointer;
 
-  div {
-    margin-left: 2vw;
-    width: 10vw;
+  > div {
+    margin-left: 20px;
+    width: 200px;
   }
   .hideText {
     opacity: 0;
-    transition: opacity 0.2s linear;
+    transition: opacity 0.2s linear 0.2s;
     cursor: default;
     /* visibility: hidden; */
     /* width: 1vw; */
@@ -212,11 +199,10 @@ const IconWrapper = styled.div`
   }
 `;
 
-const BackgroundDiv = styled.div`
-  width: 93vw;
-  height: 100vh;
-  position: fixed;
-  margin-left: 7vw;
-  background-color: rgba(0, 0, 0, 0);
-  z-index: -1;
-`;
+// const BackgroundDiv = styled.div`
+//   width: 93vw;
+//   height: 100vh;
+//   position: fixed;
+//   margin-left: 7vw;
+//   background-color: rgba(0, 0, 0, 0);
+// `;
