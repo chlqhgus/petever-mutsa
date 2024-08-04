@@ -16,7 +16,7 @@ function Router() {
         <Routes>
           <Route path="/memorialMain" element={<MemorialMain />}></Route>
           <Route path="/memorialNew" element={<MemorialNew />}></Route>
-          <Route path="/memorialDetail" element={<MemoralDetail />}></Route>
+          <Route path="/memorialDetail/:id" element={<MemoralDetail />}></Route>
         </Routes>
       </PageDiv>
     </BrowserRouter>

@@ -104,12 +104,12 @@ export const SectionWrapper = styled.div`
   padding: 88px;
   display: flex;
   flex-direction: column;
-  gap: 27px;
+  gap: 15px;
   line-height: normal;
 `;
 
 export const MainText = styled.div`
-  font-size: 40px;
+  font-size: 30px;
   font-weight: 700;
   letter-spacing: -1px;
   span {
@@ -118,7 +118,7 @@ export const MainText = styled.div`
 `;
 
 export const SubText = styled.div`
-  font-size: 15px;
+  font-size: 12px;
   font-weight: 400;
   letter-spacing: -0.5px;
   color: ${SecondaryText};
@@ -132,6 +132,7 @@ export const PostWrapper = styled.div`
   flex-wrap: wrap;
   > div {
     width: 23%;
+    height: 210px;
     margin-bottom: 2%;
   }
 `;

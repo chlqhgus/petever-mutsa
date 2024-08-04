@@ -56,17 +56,18 @@ const SectionWrapper = styled.div`
   background-color: #f6f5f4;
 `;
 
- const TextWrapper = styled.div`
+const TextWrapper = styled.div`
   padding: 88px;
 
   display: flex;
   flex-direction: column;
-  gap: 27px;
+  gap: 15px;
   line-height: normal;
   width: 70vw;
 `;
 
 const ImageWrapper = styled.div`
+  margin-top: 20px;
   width: 80%;
   img {
     width: 100%;
@@ -74,6 +75,7 @@ const ImageWrapper = styled.div`
 `;
 
 const ButtonWrapper = styled.div`
+  margin-top: 15px;
   button {
     font-size: 18px;
   }
