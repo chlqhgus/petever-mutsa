@@ -43,14 +43,14 @@ const PostTextArea = styled.div`
   width: 100%;
   height: 40%;
   top: 60%;
-  padding: 30px 20px;
+  padding: 20px 20px;
 `;
 
 const PostTextMain = styled.h3`
   font-size: 20px;
   font-weight: 700;
   color: ${Text};
-  margin-bottom: 10px;
+  margin-bottom: 5px;
 `;
 const PostTextSub = styled.h5`
   font-size: 15px;
