@@ -13,16 +13,14 @@ const TypeTab = ({ activeTab, setActiveTab }) => {
         전체글보기
       </button>
       <button
-        onClick={() => setActiveTab("today")}
-        className={activeTab === "today" ? "active-button" : "inactive-button"}
+        onClick={() => setActiveTab("answer")}
+        className={activeTab === "answer" ? "active-button" : "inactive-button"}
       >
         오늘의질문
       </button>
       <button
-        onClick={() => setActiveTab("letters")}
-        className={
-          activeTab === "letters" ? "active-button" : "inactive-button"
-        }
+        onClick={() => setActiveTab("letter")}
+        className={activeTab === "letter" ? "active-button" : "inactive-button"}
       >
         남긴편지
       </button>

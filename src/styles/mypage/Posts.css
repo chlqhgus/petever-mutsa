@@ -8,7 +8,7 @@
 }
 
 .post-box {
-  width: 300px;
+  width: 295px;
   height: 300px;
   border: 1px solid #ddd;
   border-radius: 10px;
@@ -56,7 +56,7 @@
   position: absolute;
   bottom: 10px;
   display: flex;
-  gap: 115px;
+  gap: 140px;
   align-items: center;
 }
 .post-date {

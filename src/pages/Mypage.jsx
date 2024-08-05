@@ -1,118 +1,65 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import Tab from "../components/Mypage/TypeTab";
 import Posts from "../components/Mypage/Posts";
+import { instance } from "../api/instance";
 
-import "../styles/mypage/Background.css"; //배경화면(그레이컬러) 임포트
+import "../styles/mypage/Background.css"; // 배경화면(그레이컬러) 임포트
 
 const Mypage = () => {
-  const [activeTab, setActiveTab] = useState("all");
-  const [posts, setPosts] = useState([]);
-  const [page, setPage] = useState(1);
-  const observerRef = useRef(null);
+  const [activeTab, setActiveTab] = useState("all"); //현재 활성화된 탭
+  const [posts, setPosts] = useState([]); // 해당 탭의 Data 가져오기(API)
 
   useEffect(() => {
-    // 초기 로드 시 더미 데이터를 사용
-    loadPosts(activeTab, 1);
+    // activeTab이 변경될 때마다 loadPosts 함수를 호출하여 데이터를 불러옴
+    loadPosts(activeTab);
   }, [activeTab]);
 
-  const dummyData = {
-    all: [
-      {
-        id: 1,
-        title: "Post 1",
-        content: `보고싶다 우리 제니 잘 지내고 있지?
-  언니는 행복한 하루를 보냈어
-  제니도 좋은 하루가 됐길 바래`,
-        image: "https://via.placeholder.com/300", // 실제 이미지 URL로 교체 필요
-        date: "2024년 7월 19일",
-        type: "오늘의질문",
-      },
-      {
-        id: 2,
-        title: "Post 2",
-        content: "This is the second post.",
-        image: "https://via.placeholder.com/300",
-        date: "2024년 7월 19일",
-        type: "오늘의질문",
-      },
-      {
-        id: 3,
-        title: "Post 3",
-        content: "This is the third post.",
-        image: "https://via.placeholder.com/300",
-        date: "2024년 7월 19일",
-        type: "오늘의질문",
-      },
-    ],
-    today: [
-      {
-        id: 4,
-        title: "Today's Post 1",
-        content: `This is today's first post.
-  This is a new line.`,
-        image: "https://via.placeholder.com/300",
-        date: "2024년 7월 19일",
-        type: "오늘의질문",
-      },
-      {
-        id: 5,
-        title: "Today's Post 2",
-        content: `This is today's second post.
-  Another new line.`,
-        image: "https://via.placeholder.com/300",
-        date: "2024년 7월 19일",
-        type: "오늘의질문",
-      },
-    ],
-    letters: [
-      {
-        id: 6,
-        title: "Letter 1",
-        content: `This is the first letter.
-  This is a new line.`,
-        image: "https://via.placeholder.com/300",
-        date: "2024년 7월 19일",
-        type: "편지쓰기",
-      },
-      {
-        id: 7,
-        title: "Letter 2",
-        content: `This is the second letter.
-  Another new line.`,
-        image: "https://via.placeholder.com/300",
-        date: "2024년 7월 19일",
-        type: "편지쓰기",
-      },
-    ],
-  };
+  const loadPosts = async (tab) => {
+    //해당 tab에 맞는 데이터를 불러오는 구조
+    //const token = localStorage.getItem("accessToken");
+    const token = //로그인 토큰. 실제로는 localStorage에 있는 token을 가져옴
+      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzIyODgwMDQ5LCJpYXQiOjE3MjI4NzgyNDksImp0aSI6Ijk5NTc1NjE0MTc5ODRhMzBiNGZkMTZhZjNhYWVkZTkxIiwidXNlcl9pZCI6M30.6JD-lJqMHRgNcDQWxAlzN1pw0kP7yBwCQn8id1uFwB4";
+    if (!token) {
+      console.error("Access token is missing");
+      return;
+    }
 
-  const loadPosts = (tab, page) => {
-    // 더미 데이터를 사용하여 포스트를 로드
-    const data = (dummyData[tab] || []).map((post) => ({
-      ...post,
-      isQuestion: post.type === "오늘의질문",
-    }));
-    setPosts((prevPosts) => (page === 1 ? data : [...prevPosts, ...data]));
-  };
+    let endpoint; //tab에 따라서 endpoint 설정
+    switch (tab) {
+      case "today":
+        endpoint = "/posts/answer/";
+        break;
+      case "letters":
+        endpoint = "/posts/letter/";
+        break;
+      case "all":
+      default:
+        endpoint = "/posts/allposts/";
+        break;
+    }
 
-  const handleObserver = (entries) => {
-    const target = entries[0];
-    if (target.isIntersecting) {
-      setPage((prevPage) => prevPage + 1);
-      loadPosts(activeTab, page + 1);
+    try {
+      const response = await instance.get(endpoint, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json",
+        },
+      });
+
+      if (response.status === 200) {
+        const data = response.data.map((post) => ({
+          ...post,
+          isQuestion: post.type === "answer",
+          date: new Date(post.created_at).toLocaleDateString("ko-KR"),
+        }));
+        setPosts(data); // 이전 데이터를 덮어쓰기
+      } else {
+        console.error("Failed to load posts:", response.statusText);
+      }
+    } catch (error) {
+      console.error("Error loading posts:", error);
     }
   };
-
-  useEffect(() => {
-    const option = {
-      root: null,
-      rootMargin: "20px",
-      threshold: 1.0,
-    };
-    observerRef.current = new IntersectionObserver(handleObserver, option);
-    if (observerRef.current)
-      observerRef.current.observe(document.querySelector("#scrollTarget"));
-  }, []);
 
   return (
     <div className="mypage-section">
@@ -120,7 +67,6 @@ const Mypage = () => {
         <Tab activeTab={activeTab} setActiveTab={setActiveTab} />
       </div>
       <Posts posts={posts} />
-      <div id="scrollTarget"></div>
     </div>
   );
 };
