@@ -1,0 +1,50 @@
+/* styles/diary/Services.css */
+.submit-section {
+  margin-left: 7%;
+  padding-left: 1000px;
+  padding-top: 20px;
+}
+
+.record-button {
+    margin-left:7%;
+    padding-left:1000px;
+    padding-top:10px;
+}
+
+.record-button-pink {
+  color: #fff;
+
+  font-family: "LINE Seed Sans KR";
+  font-size: 23px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 27px; /* 117.391% */
+  letter-spacing: -0.5px;
+
+  width: 190px;
+  height: 51px;
+  flex-shrink: 0;
+  border-radius: 10px;
+  background: var(--accent, #f39a89);
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  border: none;
+}
+
+.record-button-yellow {
+  color: #fff;
+
+  font-family: "LINE Seed Sans KR";
+  font-size: 23px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 27px; /* 117.391% */
+  letter-spacing: -0.5px;
+
+  width: 190px;
+  height: 51px;
+  flex-shrink: 0;
+  border-radius: 10px;
+  background: var(--accent2, #ffc04e);
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  border: none;
+}

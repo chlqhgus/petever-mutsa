@@ -1,15 +1,15 @@
 .service {
-    padding:30px;
+  padding: 30px;
+  padding-bottom:20px;
 }
 
 .service-contents {
   margin-left: 7%;
   padding-left: 64px;
-  padding-bottom: 35px;
+  padding-bottom: 5px;
 }
 
 .service-text h1 {
-    
   color: var(--text, #150a08);
   font-family: "LINE Seed Sans KR";
   font-size: 30px;
@@ -18,8 +18,8 @@
   line-height: normal;
   letter-spacing: -0.5px;
 
-  padding-top : 15px;
-  padding-bottom:35px;
+  padding-top: 15px;
+  padding-bottom: 23px;
 }
 
 .service-text p {
@@ -33,5 +33,5 @@
 }
 
 .accent2 {
-    color:#FFC04E
+  color: #ffc04e;
 }

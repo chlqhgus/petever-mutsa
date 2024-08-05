@@ -9,7 +9,6 @@ const DiaryLetter = () => {
     <div>
       <WriteType />
       <Services />
-      <UploadSection />
       <SubmitButton />
     </div>
   );
