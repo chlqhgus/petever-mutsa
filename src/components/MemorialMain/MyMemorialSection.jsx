@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Button from "../common/Button";
 import memorialLanding from "../../assets/icon/memorialLanding.png";
 import styled from "styled-components";
@@ -7,7 +7,22 @@ import { useNavigate } from "react-router-dom";
 import { MainText, SubText } from "./OtherMemorialSection";
 
 const MyMemorialSection = () => {
+  const [isLogin, setIsLogin] = useState(true);
+  const [isCreate, setIsCreate] = useState(true);
   const nav = useNavigate();
+
+  const onClickCreate = () => {
+    if (!isLogin) {
+      alert("로그인 후 이용 가능합니다.");
+    } else {
+      nav("/memorialNew");
+    }
+  };
+
+  const onClickEnter = () => {
+    nav("/memorialDetail/0");
+  };
+
   return (
     <>
       <SectionWrapper>
@@ -27,11 +42,9 @@ const MyMemorialSection = () => {
           </SubText>
           <ButtonWrapper>
             <Button
-              text={"추모공간 생성하기"}
+              text={isCreate ? "추모공간 입장하기" : "추모공간 생성하기"}
               color={SelectFuneral}
-              onClick={() => {
-                nav("/memorialNew");
-              }}
+              onClick={isCreate ? onClickEnter : onClickCreate}
             ></Button>
           </ButtonWrapper>
         </TextWrapper>
