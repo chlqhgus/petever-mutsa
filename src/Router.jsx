@@ -10,6 +10,8 @@ import LandingPage from "./pages/LandingPage";
 import DiaryQuestion from "./pages/DiaryQuestion";
 import DiaryLetter from "./pages/DiaryLetter";
 
+import MyPage from "./pages/Mypage";
+
 function Router() {
   return (
     <BrowserRouter>
@@ -24,6 +26,7 @@ function Router() {
           <Route path="/memorialMain" element={<MemorialMain />}></Route>
           <Route path="/memorialNew" element={<MemorialNew />}></Route>
           <Route path="/memorialDetail" element={<MemoralDetail />}></Route>
+          <Route path="/mypage" element={<MyPage />}></Route>
         </Routes>
       </PageDiv>
     </BrowserRouter>
