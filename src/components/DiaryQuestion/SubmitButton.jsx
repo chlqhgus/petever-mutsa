@@ -28,7 +28,7 @@ const SubmitButton = () => {
 
       //const token = localStorage.getItem("accessToken"); // 로컬 스토리지에서 토큰을 가져옴
       const token =
-        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzIyODczNDAwLCJpYXQiOjE3MjI4NzE2MDAsImp0aSI6ImEyOTNmMzYxYzBlMjQzODM4YjgwY2UyZDc1YjFlYTlhIiwidXNlcl9pZCI6M30.tEHeAOpjs0s4QqjVbJSDWXP8yvPFFivjaOK3dZWt3S0";
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzIyODgxNzU4LCJpYXQiOjE3MjI4Nzk5NTgsImp0aSI6ImU5Njg2NTJhZTA2MjQ4OGRiNGY2MzM2Yzg0OWMxOThhIiwidXNlcl9pZCI6M30.kKIIsrNBf14dwvlzPaR1lYIex9JkMFe18l6sK-PzOLY";
       try {
         const response = await instance.post("/posts/answer/", formData, {
           headers: {
