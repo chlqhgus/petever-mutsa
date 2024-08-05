@@ -1,11 +1,29 @@
-import React from "react";
+import React, { useState } from "react";
 import "../../styles/mypage/Posts.css"; // 스타일 파일 추가
+import PostDetail from "./PostDetail";
 
 const Posts = ({ posts }) => {
+  const [showModal, setShowModal] = useState(false);
+  const [selectedPost, setSelectedPost] = useState(null);
+
+  const handlePostClick = (post) => {
+    setSelectedPost(post);
+    setShowModal(true);
+  };
+
+  const handleCloseModal = () => {
+    setShowModal(false);
+    setSelectedPost(null);
+  };
+
   return (
     <div className="posts-container">
       {posts.map((post) => (
-        <div key={post.id} className="post-box">
+        <div
+          key={post.id}
+          className="post-box"
+          onClick={() => handlePostClick(post)}
+        >
           <img
             src={post.image || "https://via.placeholder.com/300"}
             alt={post.title}
@@ -30,6 +48,13 @@ const Posts = ({ posts }) => {
           </div>
         </div>
       ))}
+      {selectedPost && (
+        <PostDetail
+          showModal={showModal}
+          handleClose={handleCloseModal}
+          post={selectedPost}
+        />
+      )}
     </div>
   );
 };

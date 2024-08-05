@@ -19,7 +19,7 @@ const Mypage = () => {
     //해당 tab에 맞는 데이터를 불러오는 구조
     //const token = localStorage.getItem("accessToken");
     const token = //로그인 토큰. 실제로는 localStorage에 있는 token을 가져옴
-      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzIyODgzNjQxLCJpYXQiOjE3MjI4ODE4NDEsImp0aSI6Ijk1OTE2NWFhM2FhYzQ5MzlhZWVkODZmYzkzZGZhNmQ1IiwidXNlcl9pZCI6M30._Y9ES9lWjjmMaYyh9VPpgPrudMN405nPiMAQ9oBAFNc";
+      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzIyODg1NDk2LCJpYXQiOjE3MjI4ODM2OTYsImp0aSI6ImUyMDkzY2Y0NjcxMjRkY2FhZDc2NWY0NjVmNTA4MmQ2IiwidXNlcl9pZCI6M30.sKOHa3Wz6A0Yjnf663nQHK_f1yNoqpBkwP9kIHiABsk";
     if (!token) {
       console.error("Access token is missing");
       return;
@@ -49,7 +49,6 @@ const Mypage = () => {
 
       if (response.status === 200) {
         let data = response.data;
-        console.log(`Data from ${endpoint}:`, data); // 데이터 확인을 위한 콘솔 출력
         // 엔드포인트에 따른 데이터 가공
         if (tab === "all") {
           data = data.map((post) => ({
