@@ -73,6 +73,9 @@ const SideBar = () => {
                 isExtended && SetIsExtended(!isExtended);
                 nav("/funeralLocation");
               }}
+              className={
+                location.pathname.includes("funeral") ? "currentPage" : ""
+              }
             >
               <IconImg src={iconFuneral}></IconImg>
               <div className={isExtended ? "showText" : "hideText"}>
