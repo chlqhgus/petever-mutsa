@@ -20,6 +20,8 @@ const UploadSection = forwardRef((props, ref) => {
       setImage(null);
       setText("");
     },
+    getImage: () => image,
+    getText: () => text,
   }));
 
   useEffect(() => {
