@@ -1,7 +1,7 @@
 .LocationButton {
   display: flex;
   gap: 15px;
-  padding: 0px 9%;
+  padding: 0px 7%;
 }
 
 .LocationButton button {
@@ -19,5 +19,5 @@
   display: flex;
   gap: 12px;
   flex-wrap: wrap;
-  padding: 50px 8%;
+  padding: 50px 7%;
 }
