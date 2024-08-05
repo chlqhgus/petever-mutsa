@@ -1,6 +1,7 @@
 import React from "react";
 import "../../styles/diary/WriteType.css";
 import { useNavigate, useLocation } from "react-router-dom";
+import { CSSTransition, TransitionGroup } from "react-transition-group";
 
 const WriteType = () => {
   let navigate = useNavigate();
