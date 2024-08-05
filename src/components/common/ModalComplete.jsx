@@ -21,7 +21,7 @@ const ModalComplete = ({ onCloseClick }) => {
 
 export default ModalComplete;
 
-export const StyledModal = styled.div`
+const StyledModal = styled.div`
   background-color: white;
   width: 908px;
   height: 356px;
@@ -30,7 +30,7 @@ export const StyledModal = styled.div`
   position: relative;
 `;
 
-export const CloseImg = styled.img`
+const CloseImg = styled.img`
   position: absolute;
   top: 10%;
   left: 90%;
@@ -39,7 +39,7 @@ export const CloseImg = styled.img`
   cursor: pointer;
 `;
 
-export const CheckImg = styled.img`
+const CheckImg = styled.img`
   position: absolute;
   top: 94px;
   left: 425px;
@@ -47,7 +47,7 @@ export const CheckImg = styled.img`
   height: 58px;
 `;
 
-export const StyledText = styled.span`
+const StyledText = styled.span`
   position: absolute;
   top: 200px;
   left: 98px;
@@ -60,6 +60,6 @@ export const StyledText = styled.span`
   letter-spacing: -0.5px;
 `;
 
-export const StyledTextBold = styled.span`
+const StyledTextBold = styled.span`
   font-weight: 700;
 `;

@@ -8,6 +8,7 @@ import FuneralLocation from "./pages/FuneralLocation";
 import FuneralLocationDetail from "./pages/FuneralLocationDetail";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
+import styled from "styled-components";
 
 function Router() {
   return (

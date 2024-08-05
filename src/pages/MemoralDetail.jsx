@@ -1,13 +1,10 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
-const FuneralDetail = () => {
-  const nav=useNavigate();
-  const onClick=()=>{
-    nav("/funeralMain");
-  }
-  return <button onClick={onClick}>liknk to funeral main</button>;
-  
+const MemorialDetail = () => {
+  const params = useParams();
+
+  return <div>memorial detail #{`${params.id}`}</div>;
 };
 
-export default FuneralDetail;
+export default MemorialDetail;

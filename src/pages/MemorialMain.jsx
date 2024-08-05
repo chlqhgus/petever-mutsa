@@ -1,7 +1,14 @@
 import React from "react";
+import MyMemorialSection from "../components/MemorialMain/MyMemorialSection";
+import OtherMemorialSection from "../components/MemorialMain/OtherMemorialSection";
 
-const FuneralMain = () => {
-  return <div>장례식 main</div>;
+const MemorialMain = () => {
+  return (
+    <div>
+      <MyMemorialSection></MyMemorialSection>
+      <OtherMemorialSection></OtherMemorialSection>
+    </div>
+  );
 };
 
-export default FuneralMain;
+export default MemorialMain;
