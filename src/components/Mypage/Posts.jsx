@@ -16,7 +16,11 @@ const Posts = ({ posts }) => {
 
             <div className="date-and-type">
               <p className="post-date">{post.date}</p>
-              <button className="post-type">{post.type}</button>
+              <button
+                className={post.isQuestion ? "post-type-que" : "post-type-let"}
+              >
+                {post.type}
+              </button>
             </div>
           </div>
         </div>

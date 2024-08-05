@@ -88,7 +88,10 @@ const Mypage = () => {
 
   const loadPosts = (tab, page) => {
     // 더미 데이터를 사용하여 포스트를 로드
-    const data = dummyData[tab] || [];
+    const data = (dummyData[tab] || []).map((post) => ({
+      ...post,
+      isQuestion: post.type === "오늘의질문",
+    }));
     setPosts((prevPosts) => (page === 1 ? data : [...prevPosts, ...data]));
   };
 
