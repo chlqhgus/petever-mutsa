@@ -10,6 +10,7 @@ const Mypage = () => {
   const [posts, setPosts] = useState([]); // 해당 탭의 Data 가져오기(API)
 
   useEffect(() => {
+    setPosts([]);
     // activeTab이 변경될 때마다 loadPosts 함수를 호출하여 데이터를 불러옴
     loadPosts(activeTab);
   }, [activeTab]);
@@ -18,7 +19,7 @@ const Mypage = () => {
     //해당 tab에 맞는 데이터를 불러오는 구조
     //const token = localStorage.getItem("accessToken");
     const token = //로그인 토큰. 실제로는 localStorage에 있는 token을 가져옴
-      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzIyODgwMDQ5LCJpYXQiOjE3MjI4NzgyNDksImp0aSI6Ijk5NTc1NjE0MTc5ODRhMzBiNGZkMTZhZjNhYWVkZTkxIiwidXNlcl9pZCI6M30.6JD-lJqMHRgNcDQWxAlzN1pw0kP7yBwCQn8id1uFwB4";
+      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzIyODgzNjQxLCJpYXQiOjE3MjI4ODE4NDEsImp0aSI6Ijk1OTE2NWFhM2FhYzQ5MzlhZWVkODZmYzkzZGZhNmQ1IiwidXNlcl9pZCI6M30._Y9ES9lWjjmMaYyh9VPpgPrudMN405nPiMAQ9oBAFNc";
     if (!token) {
       console.error("Access token is missing");
       return;
@@ -26,10 +27,10 @@ const Mypage = () => {
 
     let endpoint; //tab에 따라서 endpoint 설정
     switch (tab) {
-      case "today":
+      case "answer":
         endpoint = "/posts/answer/";
         break;
-      case "letters":
+      case "letter":
         endpoint = "/posts/letter/";
         break;
       case "all":
@@ -47,11 +48,24 @@ const Mypage = () => {
       });
 
       if (response.status === 200) {
-        const data = response.data.map((post) => ({
-          ...post,
-          isQuestion: post.type === "answer",
-          date: new Date(post.created_at).toLocaleDateString("ko-KR"),
-        }));
+        let data = response.data;
+        console.log(`Data from ${endpoint}:`, data); // 데이터 확인을 위한 콘솔 출력
+        // 엔드포인트에 따른 데이터 가공
+        if (tab === "all") {
+          data = data.map((post) => ({
+            ...post,
+            isQuestion: post.type === "answer",
+            date: new Date(post.created_at).toLocaleDateString("ko-KR"),
+          }));
+        } else {
+          data = data.map((post) => ({
+            ...post,
+            type: tab,
+            isQuestion: tab === "answer",
+            date: new Date(post.created_at).toLocaleDateString("ko-KR"),
+          }));
+        }
+
         setPosts(data); // 이전 데이터를 덮어쓰기
       } else {
         console.error("Failed to load posts:", response.statusText);

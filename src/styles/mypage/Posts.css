@@ -5,10 +5,11 @@
   justify-content: center; /* 중앙 정렬 */
   margin-left: 7%;
   padding-left: 50px;
+  justify-content: flex-start;
 }
 
 .post-box {
-  width: 295px;
+  width: 300px;
   height: 300px;
   border: 1px solid #ddd;
   border-radius: 10px;
