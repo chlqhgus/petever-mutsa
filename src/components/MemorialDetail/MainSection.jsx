@@ -16,7 +16,7 @@ const getFormattedDate = (date) => {
     .padStart(2, "0")}.${date.getDay().toString().padStart(2, "0")}`;
 };
 
-const MainSection = ({ data }) => {
+const MainSection = ({ data, onChangeData, inputRef, onSubmit }) => {
   return (
     <SectionWrapper>
       <FrameWrapper>
@@ -47,12 +47,26 @@ const MainSection = ({ data }) => {
             남겨주세요.
           </div>
           <InputContent>
-            <textarea placeholder="원하시는 문구를 작성해주세요"></textarea>
+            <textarea
+              id="content"
+              onChange={onChangeData}
+              placeholder="원하시는 문구를 작성해주세요"
+              ref={(ref) => (inputRef.current[0] = ref)}
+            ></textarea>
           </InputContent>
           <SubmitWrapper>
-            <input placeholder="작성자 이름(닉네임)을 작성해주세요"></input>
+            <input
+              id="username"
+              onChange={onChangeData}
+              placeholder="작성자 이름(닉네임)을 작성해주세요"
+              ref={(ref) => (inputRef.current[1] = ref)}
+            ></input>
             <div>
-              <Button text={"발자국 남기기"} color={SelectFuneral}></Button>
+              <Button
+                text={"발자국 남기기"}
+                color={SelectFuneral}
+                onClick={onSubmit}
+              ></Button>
               <img src={pawBrown}></img>
             </div>
           </SubmitWrapper>
@@ -89,7 +103,9 @@ const FrameContent = styled.div`
   font-family: NanumPen;
   > img {
     width: 240px;
+    height: 240px;
     margin-bottom: 13px;
+    object-fit: cover;
   }
   .petName {
     font-size: 60px;
@@ -146,6 +162,7 @@ const InputWrapper = styled.div`
     font-weight: 400;
     line-height: normal;
     letter-spacing: -0.5px;
+    resize: none;
     &::placeholder {
       color: ${Unselect};
     }

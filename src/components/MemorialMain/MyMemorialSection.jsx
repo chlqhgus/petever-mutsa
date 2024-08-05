@@ -8,7 +8,7 @@ import { MainText, SubText } from "./OtherMemorialSection";
 
 const MyMemorialSection = () => {
   const [isLogin, setIsLogin] = useState(true);
-  const [isCreate, setIsCreate] = useState(true);
+  const [isCreate, setIsCreate] = useState(false);
   const nav = useNavigate();
 
   const onClickCreate = () => {
