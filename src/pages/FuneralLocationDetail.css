@@ -12,23 +12,29 @@
 .header-content {
   position: absolute;
   top: 130px;
-  left: 9%;
+  left: 7%;
   color: white;
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
 
+.header-content p {
+  font-size: 20px;
+  color: #c5c5c5;
+}
+
 .careleft {
   cursor: pointer;
 }
 
-.header-content p{
-  padding-left: 40px;
+.header-content p {
+  padding-left: 60px;
 }
 
 .title {
   display: flex;
+  align-items: center;
   gap: 10px;
 }
 
@@ -43,7 +49,7 @@
 .info-table {
   border: 1px solid;
   border-collapse: collapse;
-  width: 50%;
+  width: 80%;
 }
 
 td {
@@ -55,10 +61,14 @@ td {
   width: 120px;
   height: 50px;
   background-color: #d1c8c8;
+  padding: 30px;
+  text-align: center;
 }
 
 .right {
   width: 300px;
+    padding: 30px;
+
 }
 
 .detail2 {
