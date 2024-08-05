@@ -9,7 +9,7 @@ const GallerySection = ({ data }) => {
       <div className="titleText">{`${data.pet_name}와 함께한 발자국들`}</div>
       <img className="titlePaw" src={pawBrown}></img>
       <PolaroidWrapper>
-        {data.gallery_images.map((item) => {
+        {data.gallery_images?.map((item) => {
           return <PolaroidItem key={item.id} image={item.image}></PolaroidItem>;
         })}
       </PolaroidWrapper>

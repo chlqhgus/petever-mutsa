@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef, useState } from "react";
 import Button from "../common/Button";
 import {
   SelectFuneral,
@@ -9,14 +9,39 @@ import {
 import imageFrame from "../../assets/icon/imageFrame.png";
 import styled from "styled-components";
 import pawBrown from "../../assets/icon/pawBrown.png";
+import { instance } from "../../api/instance";
 
 const getFormattedDate = (date) => {
   return `${date.getFullYear()}.${(date.getMonth() + 1)
     .toString()
-    .padStart(2, "0")}.${date.getDay().toString().padStart(2, "0")}`;
+    .padStart(2, "0")}.${date.getDate().toString().padStart(2, "0")}`;
 };
 
-const MainSection = ({ data, onChangeData, inputRef, onSubmit }) => {
+const MainSection = ({ data, params, submitCheck, setSubmitCheck }) => {
+  const [inputData, setInputData] = useState({
+    memorial_id: Number(params.id),
+  });
+  const inputRef = useRef([]);
+
+  const onChangeData = (e) => {
+    setInputData({ ...inputData, [e.target.id]: e.target.value });
+  };
+
+  const onSubmit = () => {
+    if (inputRef.current.filter((item) => item.value).length !== 2) {
+      alert("발자국 정보를 모두 입력해주세요.");
+      return;
+    }
+    const fetchData = async () => {
+      const res = await instance.post("tributes/footprints/", inputData);
+      console.log(res);
+    };
+    fetchData();
+    setSubmitCheck(!submitCheck);
+    inputRef.current[0].value = "";
+    inputRef.current[1].value = "";
+  };
+
   return (
     <SectionWrapper>
       <FrameWrapper>
@@ -30,21 +55,16 @@ const MainSection = ({ data, onChangeData, inputRef, onSubmit }) => {
         </FrameContent>
       </FrameWrapper>
       <TextWrapper>
-        <div className="mainText">
-          사랑하는 코코, <br />
-          그와 함께한 순간들을 기억하며.
-        </div>
-        <div className="subText">
-          “ 코코야, 우리랑 함께해줘서 정말 고마웠어. <br />
-          너랑 있는 모든 시간이 행복했다는 걸 잊지 말아주라. 사랑해🤍 ”
-        </div>
+        <div className="mainText">{data.memorial_tagline}</div>
+        <div className="subText">{data.message}</div>
 
         <InputWrapper>
           <div className="inputText">
-            민우님 혹은 민우님의 반려동물에게 남기고 싶은 말이 있으신가요?{" "}
+            {data.user_name}님 혹은 {data.user_name}님의 반려동물에게 남기고
+            싶은 말이 있으신가요?
             <br />
-            유민우님의 소중한 가족이었던 코코와의 마지막 여정에 발자국을
-            남겨주세요.
+            {data.user_name}님의 소중한 가족이었던 {data.pet_name}와의 마지막
+            여정에 발자국을 남겨주세요.
           </div>
           <InputContent>
             <textarea
@@ -82,6 +102,7 @@ const SectionWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
+  word-break: keep-all;
 `;
 
 const FrameWrapper = styled.div`

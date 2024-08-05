@@ -13,7 +13,7 @@ const FootprintSection = ({ data }) => {
       <div className="titleText">우리가 남긴 발자국들</div>
       <img className="titlePaw" src={pawBrown}></img>
       <FootprintWrapper>
-        {data.footprints.map((item) => {
+        {data.footprints?.map((item) => {
           return (
             <FootprintItem
               key={item.id}
