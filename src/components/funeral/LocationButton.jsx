@@ -3,17 +3,17 @@ import "./LocationButton.css";
 import PostBlock from "../common/PostBlock";
 import { useNavigate } from "react-router-dom";
 
-const LocationButton = ({ locations }) => {
+const LocationButton = ({ mockData }) => {
   const [area, setArea] = useState("");
 
   const filteredMetropolitan = () => {
-    return locations.filter((location) => location.region === "수도권");
+    return mockData.filter((location) => location.region === "수도권");
   };
 
   const [newList, setNewList] = useState(filteredMetropolitan());
 
   const filteredLocations = () => {
-    return locations.filter((location) => location.region === area);
+    return mockData.filter((location) => location.region === area);
   };
 
   const nav = useNavigate();
