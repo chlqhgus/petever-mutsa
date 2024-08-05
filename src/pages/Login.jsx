@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { instance } from "../api/instance";
 import { useNavigate } from "react-router-dom";
-import styled from "styled-components";
+import "./Login.css";
 
 function Login() {
   const [id, setId] = useState("");
@@ -10,6 +10,11 @@ function Login() {
 
   const idRef = useRef();
   const navigate = useNavigate();
+
+  const onClickSignup = () => {
+    navigate("/signup");
+  };
+
   const onChangeField = (e) => {
     const { name, value } = e.target;
     if (name === "id") {
@@ -30,8 +35,8 @@ function Login() {
       if (res.status === 200 && !isPendingRequest) {
         localStorage.setItem("accessToken", res.data.access);
         localStorage.setItem("user_id", res.data.user.pk);
-        navigate(-1);
-        navigate("/funeralLocation");
+        //      navigate(-1);
+        navigate("/");
       } else {
         alert("아이디나 비번이 틀렸어요!");
       }
@@ -45,11 +50,14 @@ function Login() {
     idRef.current.focus();
   }, []);
   return (
-    <LoginWrapper>
+    <div className="Login">
+      <h1>
+        <span className="orange">PET:</span>
+        <span className="yellow">EVER</span>
+      </h1>
       <div className="id">
-        <h1>아이디</h1>
         <input
-          placeholder="아이디를 입력해주세요."
+          placeholder="이메일을 입력해주세요."
           value={id}
           name="id"
           onChange={onChangeField}
@@ -57,7 +65,6 @@ function Login() {
         />
       </div>
       <div className="pw">
-        <h1>비밀번호</h1>
         <input
           type="password"
           placeholder="비밀번호를 입력해주세요"
@@ -66,13 +73,17 @@ function Login() {
           onChange={onChangeField}
         />
       </div>
-      <button onClick={postLoginData}>로그인</button>
-    </LoginWrapper>
+      <button className="E-login" onClick={postLoginData}>
+        이메일로 로그인
+      </button>
+      <div className="bottom">
+        <div className="pf">PETEVER가 처음이시라면</div>
+        <button className="su" onClick={onClickSignup}>
+          회원가입
+        </button>
+      </div>
+    </div>
   );
 }
 
 export default Login;
-
-const LoginWrapper = styled.div`
-  margin-left: 80px;
-`;

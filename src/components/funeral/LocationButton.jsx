@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./LocationButton.css";
 import PostBlock from "../common/PostBlock";
 import { useNavigate } from "react-router-dom";
@@ -11,6 +11,10 @@ const LocationButton = ({ mockData }) => {
   };
 
   const [newList, setNewList] = useState(filteredMetropolitan());
+
+  useEffect(() => {
+    setNewList(filteredMetropolitan());
+  }, [mockData]);
 
   const filteredLocations = () => {
     return mockData.filter((location) => location.region === area);
