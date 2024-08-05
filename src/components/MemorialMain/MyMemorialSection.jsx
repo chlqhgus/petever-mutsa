@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Button from "../common/Button";
 import memorialLanding from "../../assets/icon/memorialLanding.png";
 import styled from "styled-components";
@@ -7,13 +7,24 @@ import { useNavigate } from "react-router-dom";
 import { MainText, SubText } from "./OtherMemorialSection";
 
 const MyMemorialSection = () => {
-  const [isLogin, setIsLogin] = useState(true);
+  const [isLogin, setIsLogin] = useState(false);
+  const [userId, setUserId] = useState(0);
   const [isCreate, setIsCreate] = useState(false);
   const nav = useNavigate();
+
+  useEffect(() => {
+    if (localStorage.getItem("accessToken")) {
+      setIsLogin(true);
+    }
+    if (localStorage.getItem("user_id")) {
+      setUserId(localStorage.getItem("user_id"));
+    }
+  }, []);
 
   const onClickCreate = () => {
     if (!isLogin) {
       alert("로그인 후 이용 가능합니다.");
+      // 로그인 페이지로 이동
     } else {
       nav("/memorialNew");
     }

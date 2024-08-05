@@ -90,7 +90,7 @@ const InputSectionThird = ({ inputRef, onChangeData }) => {
             })}
           </div>
           <input
-            id={"gallery_images"}
+            id={"new_gallery_images"}
             onChange={onChangeImage}
             type="file"
             accept=".png,.jpg"

@@ -8,7 +8,7 @@ const PostBlock = ({ img, textMain, textSub, onClick }) => {
       <PostImg src={img}></PostImg>
       <PostTextArea>
         <PostTextMain>
-          {textMain?.length <= 11 ? textMain : textMain?.slice(0, 11) + "..."}
+          {textMain?.length <= 26 ? textMain : textMain?.slice(0, 26) + "..."}
         </PostTextMain>
         {/* 12자 이상일 경우 ...표시와 함께 뒷부분 생략 */}
         <PostTextSub>{textSub}</PostTextSub>
@@ -42,18 +42,19 @@ const PostTextArea = styled.div`
   position: absolute;
   width: 100%;
   height: 40%;
-  top: 60%;
+  top: 58%;
   padding: 20px 20px;
 `;
 
 const PostTextMain = styled.h3`
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 700;
+  line-height: 120%;
   color: ${Text};
   margin-bottom: 5px;
 `;
 const PostTextSub = styled.h5`
-  font-size: 15px;
+  font-size: 12px;
   font-weight: 400;
   color: ${SecondaryText};
 `;

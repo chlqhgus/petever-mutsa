@@ -15,9 +15,8 @@ const InputSectionSecond = ({ inputRef, onChangeData }) => {
 
   const onChangeImage = (e) => {
     const file = e.target.files[0];
-    console.log(file);
     setMainImgName(file.name);
-    onChangeData(e, URL.createObjectURL(file));
+    onChangeData(e);
   };
   const onSubmitButton = () => {
     selectFile.current.click();
