@@ -20,7 +20,6 @@ const SubmitButton = () => {
 
       const formData = new FormData();
       formData.append("user", 1); // 사용자 ID를 실제 값으로 변경해야 합니다.
-      formData.append("question", 1); // 질문 ID를 실제 값으로 변경해야 합니다.
       formData.append("content", text);
       if (image) {
         const response = await fetch(image);
