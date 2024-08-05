@@ -1,18 +1,25 @@
 import "./FuneralLocationDetail.css";
-import { useLocation } from "react-router-dom";
-import sampleimg from "../img/sample.png";
+import { useLocation, useNavigate } from "react-router-dom";
+import caretleft from "../img/CaretLeft.png";
 
 const FuneralLocationDetail = () => {
   const location = useLocation();
   const state = location.state || {};
   const { img, title, address, phonenum, link } = state;
+  const nav = useNavigate();
+  const onClickLeft = () => {
+    nav("/funeralLocation");
+  };
 
   return (
     <div className="container">
       <div className="header">
-        <img className="header-img" src={sampleimg} alt={title} />
+        <img className="header-img" src={img} alt={title} />
         <div className="header-content">
-          <h1>{title}</h1>
+          <div className="title">
+            <img src={caretleft} className="careleft" onClick={onClickLeft} />
+            <h1>{title}</h1>
+          </div>
           <p>{address}</p>
         </div>
       </div>

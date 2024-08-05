@@ -71,7 +71,7 @@ const SideBar = () => {
               width={isExtended ? "210px" : "50px"}
               onClick={() => {
                 SetIsExtended(!isExtended);
-                nav("/");
+                nav("/funeralLocation");
               }}
             >
               <IconImg src={iconFuneral}></IconImg>
