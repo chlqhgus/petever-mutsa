@@ -9,7 +9,8 @@ import { MainText, SubText } from "./OtherMemorialSection";
 const MyMemorialSection = () => {
   const [isLogin, setIsLogin] = useState(false);
   const [userId, setUserId] = useState(0);
-  const [isCreate, setIsCreate] = useState(false);
+  const [myMemorialId, setMyMemorialId] = useState(0);
+  const [isCreated, setIsCreated] = useState(false);
   const nav = useNavigate();
 
   useEffect(() => {
@@ -17,21 +18,22 @@ const MyMemorialSection = () => {
       setIsLogin(true);
     }
     if (localStorage.getItem("user_id")) {
-      setUserId(localStorage.getItem("user_id"));
+      setUserId(Number(localStorage.getItem("user_id")));
     }
+    //나의 추모관 페이지 이동 기능 추가 (api 새로 만들자)
   }, []);
 
   const onClickCreate = () => {
     if (!isLogin) {
       alert("로그인 후 이용 가능합니다.");
-      // 로그인 페이지로 이동
+      nav("/login");
     } else {
       nav("/memorialNew");
     }
   };
 
   const onClickEnter = () => {
-    nav("/memorialDetail/0");
+    nav(`/memorialDetail/${myMemorialId}`);
   };
 
   return (
@@ -53,9 +55,9 @@ const MyMemorialSection = () => {
           </SubText>
           <ButtonWrapper>
             <Button
-              text={isCreate ? "추모공간 입장하기" : "추모공간 생성하기"}
+              text={isCreated ? "추모공간 입장하기" : "추모공간 생성하기"}
               color={SelectFuneral}
-              onClick={isCreate ? onClickEnter : onClickCreate}
+              onClick={isCreated ? onClickEnter : onClickCreate}
             ></Button>
           </ButtonWrapper>
         </TextWrapper>

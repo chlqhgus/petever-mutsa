@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { instance } from "../api/instance";
 import { useNavigate } from "react-router-dom";
+import styled from "styled-components";
 
 function Login() {
   const [id, setId] = useState("");
@@ -28,7 +29,8 @@ function Login() {
       const res = await instance.post("/auth/login/", body);
       if (res.status === 200 && !isPendingRequest) {
         localStorage.setItem("accessToken", res.data.access);
-        navigate("/funeralLocation");
+        localStorage.setItem("user_id", res.data.user.pk);
+        navigate(-1);
         console.log(res);
       } else {
         alert("아이디나 비번이 틀렸어요!");
@@ -43,7 +45,7 @@ function Login() {
     idRef.current.focus();
   }, []);
   return (
-    <>
+    <LoginWrapper>
       <div className="id">
         <h1>아이디</h1>
         <input
@@ -65,8 +67,12 @@ function Login() {
         />
       </div>
       <button onClick={postLoginData}>로그인</button>
-    </>
+    </LoginWrapper>
   );
 }
 
 export default Login;
+
+const LoginWrapper = styled.div`
+  margin-left: 80px;
+`;
