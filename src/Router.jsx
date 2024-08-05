@@ -8,7 +8,6 @@ import styled from "styled-components";
 import FuneralLocation from "./pages/FuneralLocation";
 import FuneralLocationDetail from "./pages/FuneralLocationDetail";
 import Login from "./pages/Login";
-import Signup from "./pages/Signup";
 
 function Router() {
   return (
@@ -27,7 +26,6 @@ function Router() {
             element={<FuneralLocationDetail />}
           ></Route>
           <Route path="/login" element={<Login />}></Route>
-          <Route path="/signup" element={<Signup />}></Route>
         </Routes>
       </PageDiv>
     </BrowserRouter>
