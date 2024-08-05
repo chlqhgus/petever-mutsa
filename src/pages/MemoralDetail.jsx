@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import MainSection from "../components/MemorialDetail/MainSection";
 import FootprintSection from "../components/MemorialDetail/FootprintSection";
@@ -28,7 +28,43 @@ const mockData = {
     {
       id: 2,
       image:
-        "http://3.39.121.123:8001/media/memorials/gallery_images/sample_C5XV3t0.png",
+        "http://3.39.121.123:8001/media/memorials/gallery_images/sample.png",
+      uploaded_at: "2024-08-04T11:00:50.078836Z",
+    },
+    {
+      id: 3,
+      image:
+        "http://3.39.121.123:8001/media/memorials/gallery_images/sample.png",
+      uploaded_at: "2024-08-04T11:00:50.078836Z",
+    },
+    {
+      id: 4,
+      image:
+        "http://3.39.121.123:8001/media/memorials/gallery_images/sample.png",
+      uploaded_at: "2024-08-04T11:00:50.078836Z",
+    },
+    {
+      id: 5,
+      image:
+        "http://3.39.121.123:8001/media/memorials/gallery_images/sample.png",
+      uploaded_at: "2024-08-04T11:00:50.078836Z",
+    },
+    {
+      id: 6,
+      image:
+        "http://3.39.121.123:8001/media/memorials/gallery_images/sample.png",
+      uploaded_at: "2024-08-04T11:00:50.078836Z",
+    },
+    {
+      id: 7,
+      image:
+        "http://3.39.121.123:8001/media/memorials/gallery_images/sample.png",
+      uploaded_at: "2024-08-04T11:00:50.078836Z",
+    },
+    {
+      id: 8,
+      image:
+        "http://3.39.121.123:8001/media/memorials/gallery_images/sample.png",
       uploaded_at: "2024-08-04T11:00:50.078836Z",
     },
   ],
@@ -45,6 +81,24 @@ const mockData = {
       username: "정주",
       created_at: "2024-08-04T11:01:33.701694Z",
     },
+    {
+      id: 3,
+      content: "코코야 거기선 꼭 행복해야해...",
+      username: "정주",
+      created_at: "2024-08-04T11:01:33.701694Z",
+    },
+    {
+      id: 4,
+      content: "코코야 거기선 꼭 행복해야해...",
+      username: "정주",
+      created_at: "2024-08-04T11:01:33.701694Z",
+    },
+    {
+      id: 5,
+      content: "코코야 거기선 꼭 행복해야해...",
+      username: "정주",
+      created_at: "2024-08-04T11:01:33.701694Z",
+    },
   ],
   created_at: "2024-08-04T11:00:50.061599Z",
 };
@@ -52,6 +106,20 @@ const mockData = {
 const MemorialDetail = () => {
   const nav = useNavigate();
   const [data, setData] = useState(mockData);
+  const [inputData, setInputData] = useState({});
+  const inputRef = useRef([]);
+
+  const onChangeData = (e) => {
+    setInputData({ ...inputData, [e.target.id]: e.target.value });
+  };
+
+  const onSubmit = () => {
+    if (inputRef.current.filter((item) => item.value).length !== 2) {
+      alert("발자국 정보를 모두 입력해주세요.");
+      return;
+    }
+    // post 날리기
+  };
   return (
     <PageWrapper>
       {/* <Button
@@ -62,9 +130,14 @@ const MemorialDetail = () => {
         }}
       ></Button> */}
       <SectionWrapper>
-        <MainSection data={data}></MainSection>
-        <FootprintSection></FootprintSection>
-        <GallerySection></GallerySection>
+        <MainSection
+          data={data}
+          inputRef={inputRef}
+          onSubmit={onSubmit}
+          onChangeData={onChangeData}
+        ></MainSection>
+        <FootprintSection data={data}></FootprintSection>
+        <GallerySection data={data}></GallerySection>
       </SectionWrapper>
     </PageWrapper>
   );
@@ -87,6 +160,6 @@ const PageWrapper = styled.div`
 const SectionWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 100px;
+  gap: 200px;
   padding: 60px;
 `;

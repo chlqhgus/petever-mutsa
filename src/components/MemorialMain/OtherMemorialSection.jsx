@@ -1,70 +1,83 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { SecondaryText, SelectFuneral } from "../../styles/color";
 import PostBlock from "../common/PostBlock";
 import mockImage from "../../assets/icon/mockImage.jpg";
 import { useNavigate } from "react-router-dom";
+import { instance } from "../../api/instance";
+import axios from "axios";
 
-const mockData = [
-  {
-    id: 8,
-    user_id: 1,
-    user_name: "John Doe",
-    pet_name: "버디",
-    main_image:
-      "http://127.0.0.1:8000/media/memorials/main_images/final_ah55aED.jpg",
-    birth_date: "2015-06-01",
-    death_date: "2022-08-01",
-    memorial_tagline: "추모관 한줄",
-  },
-  {
-    id: 9,
-    user_id: 1,
-    user_name: "John Doe",
-    pet_name: "버디",
-    main_image:
-      "http://127.0.0.1:8000/media/memorials/main_images/final_ZTFL8AJ.jpg",
-    birth_date: "2015-06-01",
-    death_date: "2022-08-01",
-    memorial_tagline: "추모관 한줄",
-  },
-  {
-    id: 10,
-    user_id: 1,
-    user_name: "John Doe",
-    pet_name: "버디",
-    main_image:
-      "http://127.0.0.1:8000/media/memorials/main_images/final_7ebaslq.jpg",
-    birth_date: "2015-06-01",
-    death_date: "2022-08-01",
-    memorial_tagline: "추모관 한줄",
-  },
-  {
-    id: 11,
-    user_id: 1,
-    user_name: "John Doe",
-    pet_name: "버디",
-    main_image:
-      "http://127.0.0.1:8000/media/memorials/main_images/final_7ebaslq.jpg",
-    birth_date: "2015-06-01",
-    death_date: "2022-08-01",
-    memorial_tagline: "추모관 한줄",
-  },
-  {
-    id: 12,
-    user_id: 1,
-    user_name: "John Doe",
-    pet_name: "버디",
-    main_image:
-      "http://127.0.0.1:8000/media/memorials/main_images/final_7ebaslq.jpg",
-    birth_date: "2015-06-01",
-    death_date: "2022-08-01",
-    memorial_tagline: "추모관 한줄",
-  },
-];
+// const mockData = [
+//   {
+//     id: 8,
+//     user_id: 1,
+//     user_name: "John Doe",
+//     pet_name: "버디",
+//     main_image:
+//       "http://127.0.0.1:8000/media/memorials/main_images/final_ah55aED.jpg",
+//     birth_date: "2015-06-01",
+//     death_date: "2022-08-01",
+//     memorial_tagline: "추모관 한줄",
+//   },
+//   {
+//     id: 9,
+//     user_id: 1,
+//     user_name: "John Doe",
+//     pet_name: "버디",
+//     main_image:
+//       "http://127.0.0.1:8000/media/memorials/main_images/final_ZTFL8AJ.jpg",
+//     birth_date: "2015-06-01",
+//     death_date: "2022-08-01",
+//     memorial_tagline: "추모관 한줄",
+//   },
+//   {
+//     id: 10,
+//     user_id: 1,
+//     user_name: "John Doe",
+//     pet_name: "버디",
+//     main_image:
+//       "http://127.0.0.1:8000/media/memorials/main_images/final_7ebaslq.jpg",
+//     birth_date: "2015-06-01",
+//     death_date: "2022-08-01",
+//     memorial_tagline: "추모관 한줄",
+//   },
+//   {
+//     id: 11,
+//     user_id: 1,
+//     user_name: "John Doe",
+//     pet_name: "버디",
+//     main_image:
+//       "http://127.0.0.1:8000/media/memorials/main_images/final_7ebaslq.jpg",
+//     birth_date: "2015-06-01",
+//     death_date: "2022-08-01",
+//     memorial_tagline: "추모관 한줄",
+//   },
+//   {
+//     id: 12,
+//     user_id: 1,
+//     user_name: "John Doe",
+//     pet_name: "버디",
+//     main_image:
+//       "http://127.0.0.1:8000/media/memorials/main_images/final_7ebaslq.jpg",
+//     birth_date: "2015-06-01",
+//     death_date: "2022-08-01",
+//     memorial_tagline: "추모관 한줄",
+//   },
+// ];
 
 const OtherMemorialSection = () => {
   const nav = useNavigate();
+  const [mockData, setMockData] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const res = await instance.get("tributes/memorial");
+      console.log(res);
+      setMockData(res.data);
+    };
+    fetchData();
+  }, []);
+
   return (
     <SectionWrapper>
       <MainText>
