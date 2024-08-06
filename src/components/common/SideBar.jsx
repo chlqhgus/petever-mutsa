@@ -92,8 +92,9 @@ const SideBar = () => {
               width={isExtended ? "210px" : "50px"}
               onClick={() => {
                 isExtended && SetIsExtended(!isExtended);
-                nav("/");
+                nav("/myPage");
               }}
+              className={location.pathname.includes("my") ? "currentPage" : ""}
             >
               <IconImg src={iconMy}></IconImg>
               <div className={isExtended ? "showText" : "hideText"}>

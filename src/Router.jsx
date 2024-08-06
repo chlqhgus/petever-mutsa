@@ -14,6 +14,8 @@ import Signup from "./pages/Signup";
 import DiaryQuestion from "./pages/DiaryQuestion";
 import DiaryLetter from "./pages/DiaryLetter";
 
+import MyPage from "./pages/Mypage";
+
 function Router() {
   return (
     <BrowserRouter>
@@ -35,6 +37,8 @@ function Router() {
           ></Route>
           <Route path="/login" element={<Login />}></Route>
           <Route path="/signup" element={<Signup />}></Route>
+          <Route path="/mypage" element={<MyPage />}></Route>
+          
         </Routes>
       </PageDiv>
     </BrowserRouter>
