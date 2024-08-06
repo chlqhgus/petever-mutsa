@@ -19,7 +19,7 @@ const Mypage = () => {
     //해당 tab에 맞는 데이터를 불러오는 구조
     //const token = localStorage.getItem("accessToken");
     const token = //로그인 토큰. 실제로는 localStorage에 있는 token을 가져옴
-      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzIyODg1NDk2LCJpYXQiOjE3MjI4ODM2OTYsImp0aSI6ImUyMDkzY2Y0NjcxMjRkY2FhZDc2NWY0NjVmNTA4MmQ2IiwidXNlcl9pZCI6M30.sKOHa3Wz6A0Yjnf663nQHK_f1yNoqpBkwP9kIHiABsk";
+      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzIyOTI3NzQ3LCJpYXQiOjE3MjI5MjU5NDcsImp0aSI6ImEyZTUzOWI2NTRiZDQ0OTJiNGRkOGE1NzE4OGQyOTkzIiwidXNlcl9pZCI6M30.ZARgj1JjX4Y2fOxZk8w5avZDckevGWzHvwKxegwBt2M";
     if (!token) {
       console.error("Access token is missing");
       return;

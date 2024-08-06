@@ -9,6 +9,9 @@ const Posts = ({ posts }) => {
   const handlePostClick = (post) => {
     setSelectedPost(post);
     setShowModal(true);
+    console.log(post.id);
+    console.log(post.image);
+    console.log("http://3.39.121.123:8001" + post.image);
   };
 
   const handleCloseModal = () => {
@@ -25,10 +28,13 @@ const Posts = ({ posts }) => {
           onClick={() => handlePostClick(post)}
         >
           <img
-            src={post.image || "https://via.placeholder.com/300"}
+            src={
+              "http://3.39.121.123:8001" + post.image ||
+              "https://via.placeholder.com/300"
+            }
             alt={post.title}
             className="post-image"
-            onError={(e) => (e.target.src = "https://via.placeholder.com/300")} // 이미지 로드 실패 시 대체 이미지 사용
+            //onError={(e) => (e.target.src = "https://via.placeholder.com/300")} // 이미지 로드 실패 시 대체 이미지 사용
           />
           <div className="post-content">
             <p

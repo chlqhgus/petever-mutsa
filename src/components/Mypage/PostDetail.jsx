@@ -12,8 +12,11 @@ const PostDetail = ({ showModal, handleClose, post }) => {
         </button>
         <div className="modal-img-text">
           <img
-            src="src/assets/Images/petImage/3472382475093041960_20230415100936572.JPG"
-            //src={post.image || "https://via.placeholder.com/300"}
+            //src="src/assets/Images/petImage/3472382475093041960_20230415100936572.JPG"
+            src={
+              "http://3.39.121.123:8001" + post.image ||
+              "https://via.placeholder.com/300"
+            }
             alt={post.title}
             className="modal-image"
           />
@@ -21,7 +24,7 @@ const PostDetail = ({ showModal, handleClose, post }) => {
             <div className="modal-text">
               <h2>{post.question}</h2>
               <p>{post.content}</p>
-              <p2 className="modal-date">{post.date}</p2>
+              <p className="modal-date">{post.date}</p>
             </div>
           </div>
         </div>
