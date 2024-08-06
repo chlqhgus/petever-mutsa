@@ -54,7 +54,7 @@ const FuneralLocationDetail = () => {
         지도 위의 핀 아이콘 클릭 시, 네이버 지도로 이동합니다.
       </div>
       <div className="Map">
-        <Kakaomap></Kakaomap>
+        <Kakaomap title={title} address={address}></Kakaomap>
       </div>
     </div>
   );
