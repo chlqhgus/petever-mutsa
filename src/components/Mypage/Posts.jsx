@@ -26,7 +26,7 @@ const Posts = ({ posts }) => {
         >
           <img
             src={
-              "http://3.39.121.123:8001" + post.image ||
+              "http://3.39.121.123/api" + post.image ||
               "https://via.placeholder.com/300"
             }
             alt={post.title}
