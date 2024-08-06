@@ -1,0 +1,37 @@
+.service {
+  padding: 30px;
+  padding-bottom:20px;
+}
+
+.service-contents {
+  margin-left: 7%;
+  padding-left: 64px;
+  padding-bottom: 5px;
+}
+
+.service-text h1 {
+  color: var(--text, #150a08);
+  font-family: "LINE Seed Sans KR";
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: -0.5px;
+
+  padding-top: 15px;
+  padding-bottom: 23px;
+}
+
+.service-text p {
+  color: #8d8d8d;
+  font-family: "LINE Seed Sans KR";
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 22px; /* 142.105% */
+  letter-spacing: -0.5px;
+}
+
+.accent2 {
+  color: #ffc04e;
+}

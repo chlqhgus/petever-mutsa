@@ -1,0 +1,75 @@
+.typecheck-button {
+  padding-left: 60px;
+  padding-top: 50px;
+  margin-left: 7%;
+}
+
+.question-button-unselect {
+  width: 110px;
+  height: 42px;
+
+  border: none;
+  border-bottom: 1px solid var(--accent, #d9d9d9);
+  background: #fff;
+
+  /* text */
+  color: var(--buttons-secondary, #d9d9d9);
+  font-family: "LINE Seed Sans KR";
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: -1px;
+}
+
+.question-button-select {
+  width: 110px;
+  height: 42px;
+
+  border: none;
+  border-bottom: 1px solid var(--accent, #ef7057);
+  background: #fff;
+
+  /* text */
+  color: var(--buttons-secondary, #ef7057);
+  font-family: "LINE Seed Sans KR";
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: -1px;
+}
+
+.letter-button-unselect {
+  width: 110px;
+  height: 42px;
+
+  border: none;
+  border-bottom: 1px solid var(--accent, #d9d9d9);
+  background: #fff;
+
+  color: var(--unselect, #c5c5c5);
+  font-family: "LINE Seed Sans KR";
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: -1px;
+}
+
+.letter-button-select {
+  width: 110px;
+  height: 42px;
+
+  border: none;
+  border-bottom: 1px solid var(--accent, #ffc04e);
+  background: #fff;
+
+  color: var(--unselect, #ffc04e);
+  font-family: "LINE Seed Sans KR";
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: -1px;
+}
