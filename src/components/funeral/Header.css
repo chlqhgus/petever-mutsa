@@ -1,14 +1,26 @@
 .Head {
   display: flex;
   flex-direction: column;
-  padding: 50px 0px 50px 7%;
-  gap: 50px;
+  padding: 92px 0px 36px 60px;
+  gap: 35px;
+
+  /* 여기부터 추가수정 */
+  margin-left: 6%;
 }
 
 .Header {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+}
+
+.Header h1 {
+  color: var(--text, #150a08);
+  font-family: "LINE Seed Sans KR";
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: -0.5px;
 }
 
 .ctc {
@@ -16,6 +28,11 @@
 }
 
 .detail {
-  font-size: 20px;
-  color: #7E7E7E;
+  color: var(--secondary-text, #7e7e7e);
+  font-family: "LINE Seed Sans KR";
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: -0.5px;
 }
