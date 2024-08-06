@@ -17,7 +17,7 @@ const Services = () => {
           <div className="service-card">
             <h1>📝</h1>
             <h3>
-              <span class="accent">매일매일 </span>기록하는 우리의 하루
+              <span className="accent">매일매일 </span>기록하는 우리의 하루
             </h3>
             <p>반려동물과의 일상을 기록하고 추억을 공유하세요.</p>
             <p>매일매일 달라지는 오늘의 질문을 통해</p>
@@ -26,7 +26,7 @@ const Services = () => {
           <div className="service-card">
             <h1>🏡</h1>
             <h3>
-              <span class="accent">따뜻한 </span>기억으로 가득한 공간
+              <span className="accent">따뜻한 </span>기억으로 가득한 공간
             </h3>
             <p>먼 여행을 떠난 반려동물과의 추억을</p>
             <p>언제든지 돌아볼 수 있는 공간이예요.</p>
@@ -37,7 +37,7 @@ const Services = () => {
           <div className="service-card">
             <h1>🐾</h1>
             <h3>
-              <span class="accent">소중한 </span>이별의 준비
+              <span className="accent">소중한 </span>이별의 준비
             </h3>
             <p>신뢰할 수 있는 반려동물 장례식장 정보를 제공합니다.</p>
             <p>소중한 반려동물의 마지막 순간을 </p>

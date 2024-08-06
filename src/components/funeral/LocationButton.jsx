@@ -85,9 +85,9 @@ const LocationButton = ({ mockData }) => {
         </button>
       </div>
       <div className="postblock">
-        {newList.map((item) => {
+        {newList.map((item, index) => {
           return (
-            <Wrapper>
+            <Wrapper key={index}>
               <PostBlock
                 img={item.image}
                 textMain={item.name}

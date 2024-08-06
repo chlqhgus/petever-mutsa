@@ -1,7 +1,24 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "../../styles/landing/Footer.css";
+import { useNavigate } from "react-router-dom";
 
 const Footer = () => {
+  const [isLogin, setIsLogin] = useState(false);
+  const nav = useNavigate();
+
+  useEffect(() => {
+    if (localStorage.getItem("accessToken")) {
+      setIsLogin(true);
+    }
+  }, []);
+
+  const onClickHandler = () => {
+    if (isLogin) {
+      alert("이미 로그인되었습니다.");
+    } else {
+      nav("/login");
+    }
+  };
   return (
     <footer className="footer">
       <div className="footer-content">
@@ -13,7 +30,7 @@ const Footer = () => {
         <p>사랑하는 반려동물과의 아름다운 순간을 오래토록 기억할 수 있도록,</p>
         <p>PET:EVER가 언제나 여러분과 함께하겠습니다.</p>
       </div>
-      <button>시작하기</button>
+      <button onClick={onClickHandler}>시작하기</button>
     </footer>
   );
 };

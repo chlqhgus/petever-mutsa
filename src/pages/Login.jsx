@@ -36,7 +36,7 @@ function Login() {
         localStorage.setItem("accessToken", res.data.access);
         localStorage.setItem("user_id", res.data.user.pk);
         //      navigate(-1);
-        navigate("/");
+        navigate("/landingPage");
       } else {
         alert("아이디나 비번이 틀렸어요!");
       }

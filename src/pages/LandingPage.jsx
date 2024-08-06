@@ -7,7 +7,7 @@ import "../styles/landing/Background.css"; //배경화면 이미지 임포트
 
 const LandingPage = () => {
   return (
-    <div>
+    <div className="background">
       <Header />
       <Services />
       <Footer />
