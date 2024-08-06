@@ -9,9 +9,6 @@ const Posts = ({ posts }) => {
   const handlePostClick = (post) => {
     setSelectedPost(post);
     setShowModal(true);
-    console.log(post.id);
-    console.log(post.image);
-    console.log("http://3.39.121.123:8001" + post.image);
   };
 
   const handleCloseModal = () => {

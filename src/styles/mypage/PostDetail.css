@@ -61,18 +61,21 @@
   padding-top: 10px;
   color: var(--text, #150a08);
   font-family: "LINE Seed Sans KR";
-  font-size: 25px;
+  font-size: 23px;
   font-style: normal;
   font-weight: 700;
   line-height: normal;
   letter-spacing: -1px;
+
+  word-break: break-word; /* long words will break at arbitrary points */
+  overflow-wrap: break-word;
 }
 
-.modal-text p {
+.modal-text h1 {
   padding-top: 40px;
   color: var(--text, #150a08);
   font-family: "LINE Seed Sans KR";
-  font-size: 20px;
+  font-size: 14px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
