@@ -5,12 +5,12 @@ import styled from "styled-components";
 import { SelectFuneral } from "../../styles/color";
 import { useNavigate } from "react-router-dom";
 import { MainText, SubText } from "./OtherMemorialSection";
+import { instance } from "../../api/instance";
 
 const MyMemorialSection = () => {
   const [isLogin, setIsLogin] = useState(false);
   const [userId, setUserId] = useState(0);
   const [myMemorialId, setMyMemorialId] = useState(0);
-  const [isCreated, setIsCreated] = useState(false);
   const nav = useNavigate();
 
   useEffect(() => {
@@ -22,6 +22,21 @@ const MyMemorialSection = () => {
     }
     //나의 추모관 페이지 이동 기능 추가 (api 새로 만들자)
   }, []);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const res = await instance.get(`tributes/memorial/user/3`);
+      console.log(res);
+      if (!res.data[0]) {
+        setMyMemorialId(0);
+      } else {
+        setMyMemorialId(Number(res?.data[0]?.id));
+      }
+    };
+    if (userId !== 0) {
+      fetchData();
+    }
+  }, [userId]);
 
   const onClickCreate = () => {
     if (!isLogin) {
@@ -55,9 +70,11 @@ const MyMemorialSection = () => {
           </SubText>
           <ButtonWrapper>
             <Button
-              text={isCreated ? "추모공간 입장하기" : "추모공간 생성하기"}
+              text={
+                myMemorialId !== 0 ? "추모공간 입장하기" : "추모공간 생성하기"
+              }
               color={SelectFuneral}
-              onClick={isCreated ? onClickEnter : onClickCreate}
+              onClick={myMemorialId !== 0 ? onClickEnter : onClickCreate}
             ></Button>
           </ButtonWrapper>
         </TextWrapper>

@@ -40,6 +40,12 @@
   font-display: swap;
   src: url("../assets/fonts/NanumPen.otf") format("opentype");
 }
+@font-face {
+  font-family: "DS-DIGII";
+  font-weight: 400;
+  font-display: swap;
+  src: url("../assets/fonts/DS-DIGII.TTF") format("truetype");
+}
 
 /* 
 글꼴이 다운로드되기 전까지, 시스템 글꼴을 사용하다가 다운로드가 완료되면 웹 글꼴을 적용한다

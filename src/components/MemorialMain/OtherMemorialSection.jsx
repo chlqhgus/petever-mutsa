@@ -14,7 +14,6 @@ const OtherMemorialSection = () => {
   useEffect(() => {
     const fetchData = async () => {
       const res = await instance.get("tributes/memorial");
-      console.log(res);
       setMockData(res.data);
     };
     fetchData();
@@ -38,7 +37,7 @@ const OtherMemorialSection = () => {
           return (
             <PostBlock
               key={item.id}
-              textMain={item.memorial_tagline}
+              textMain={item.memorial_name}
               textSub={item.user_name}
               img={item.main_image}
               onClick={() => {

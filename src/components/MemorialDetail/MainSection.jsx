@@ -55,22 +55,17 @@ const MainSection = ({ data, params, submitCheck, setSubmitCheck }) => {
         </FrameContent>
       </FrameWrapper>
       <TextWrapper>
-        <div className="mainText">{data.memorial_tagline}</div>
-        <div className="subText">{data.message}</div>
+        <div className="upperText">
+          <div className="mainText">{data.memorial_tagline}</div>
+          <div className="subText">{data.message}</div>
+        </div>
 
         <InputWrapper>
-          <div className="inputText">
-            {data.user_name}님 혹은 {data.user_name}님의 반려동물에게 남기고
-            싶은 말이 있으신가요?
-            <br />
-            {data.user_name}님의 소중한 가족이었던 {data.pet_name}와의 마지막
-            여정에 발자국을 남겨주세요.
-          </div>
           <InputContent>
             <textarea
               id="content"
               onChange={onChangeData}
-              placeholder="원하시는 문구를 작성해주세요"
+              placeholder={`${data.user_name}님 혹은 ${data.user_name}님의 반려동물에게 남기고 싶은 말이 있으신가요?\n${data.user_name}님의 소중한 가족이었던 ${data.pet_name}와의 마지막 여정에 발자국을 남겨주세요.`}
               ref={(ref) => (inputRef.current[0] = ref)}
             ></textarea>
           </InputContent>
@@ -144,8 +139,14 @@ const TextWrapper = styled.div`
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 10px;
-
+  justify-content: space-between;
+  margin-top: 20px;
+  height: 400px;
+  .upperText {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
   .mainText {
     font-size: 36px;
     font-weight: 800;
@@ -163,14 +164,14 @@ const TextWrapper = styled.div`
 const InputWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  margin-top: 30px;
-  .inputText {
+  /* margin-top: 30px; */
+  /* .inputText {
     font-size: 12px;
     font-weight: 700;
     line-height: 140%;
-    letter-spacing: -1px;
+    letter-spacing: -0.2px;
     color: ${SecondaryText};
-  }
+  } */
   input,
   textarea {
     border: none;
@@ -181,12 +182,14 @@ const InputWrapper = styled.div`
     font-family: NanumMyeongjo;
     font-size: 15px;
     font-weight: 400;
-    line-height: normal;
     letter-spacing: -0.5px;
     resize: none;
     &::placeholder {
       color: ${Unselect};
     }
+  }
+  textarea {
+    line-height: 1.5;
   }
 `;
 

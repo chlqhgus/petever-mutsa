@@ -10,7 +10,7 @@ const GallerySection = ({ data }) => {
       <img className="titlePaw" src={pawBrown}></img>
       <PolaroidWrapper>
         {data.gallery_images?.map((item) => {
-          return <PolaroidItem key={item.id} image={item.image}></PolaroidItem>;
+          return <PolaroidItem key={item.id} image={item.image} date={item.uploaded_at}></PolaroidItem>;
         })}
       </PolaroidWrapper>
     </SectionWrapper>
