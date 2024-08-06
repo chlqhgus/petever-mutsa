@@ -1,0 +1,30 @@
+@keyframes slideRight {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+@keyframes slideLeft {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* .footprintSlider {
+  animation: slide 1s linear;
+} */
+
+.slideRight {
+  animation: slideRight 1s linear;
+}
+
+.slideLeft {
+  /* animation: slideLeft 1s linear; */
+  left: 100%;
+  transition: left 0.5s ease;
+}

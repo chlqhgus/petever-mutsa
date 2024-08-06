@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import FootprintItem from "./FootprintItem";
 import styled from "styled-components";
 import pawBrown from "../../assets/icon/pawBrown.png";
@@ -6,16 +6,35 @@ import gradationLeft from "../../assets/icon/gradationLeft.png";
 import gradationRight from "../../assets/icon/gradationRight.png";
 import iconLeft from "../../assets/icon/iconLeft.png";
 import iconRight from "../../assets/icon/iconRight.png";
-
+import "../../styles/FootprintSection.css";
 const FootprintSection = ({ data }) => {
+  const [position, setPosition] = useState(30);
+  const [page, setPage] = useState(1);
+  const movePosition = (direction) => {
+    const totalPage = Math.ceil(data.footprints.length / 4);
+    console.log(totalPage);
+    if (direction === "left") {
+      if (page > 1) {
+        setPosition((prevPosition) => prevPosition + 890);
+        setPage((prevPage) => prevPage - 1);
+      }
+    }
+    if (direction === "right") {
+      if (page < totalPage) {
+        setPosition((prevPosition) => prevPosition - 890);
+        setPage((prevPage) => prevPage + 1);
+      }
+    }
+  };
   return (
     <SectionWrapper>
       <div className="titleText">우리가 남긴 발자국들</div>
       <img className="titlePaw" src={pawBrown}></img>
-      <FootprintWrapper>
+      <FootprintWrapper position={position} className="footprintSlider">
         {data.footprints?.map((item) => {
           return (
             <FootprintItem
+              className="footprintItem"
               key={item.id}
               content={item.content}
               username={item.username}
@@ -24,13 +43,26 @@ const FootprintSection = ({ data }) => {
           );
         })}
       </FootprintWrapper>
+      <TempDiv></TempDiv>
       <div className="leftSide">
         <img className="gradationImg" src={gradationLeft}></img>
-        <img className="arrowImg" src={iconLeft}></img>
+        <img
+          className="arrowImg"
+          src={iconLeft}
+          onClick={() => {
+            movePosition("left");
+          }}
+        ></img>
       </div>
       <div className="rightSide">
         <img className="gradationImg" src={gradationRight}></img>
-        <img className="arrowImg" src={iconRight}></img>
+        <img
+          className="arrowImg"
+          src={iconRight}
+          onClick={() => {
+            movePosition("right");
+          }}
+        ></img>
       </div>
     </SectionWrapper>
   );
@@ -92,10 +124,19 @@ const SectionWrapper = styled.div`
     position: absolute;
     top: 50%;
     transform: translate(0%, -50%);
+    cursor: pointer;
   }
 `;
 
 const FootprintWrapper = styled.div`
   display: flex;
+  position: absolute;
   gap: 30px;
+  left: ${(props) => props.position}px;
+  transition: left 0.8s ease;
+  top: 135px;
+`;
+
+const TempDiv = styled.div`
+  height: 200px;
 `;

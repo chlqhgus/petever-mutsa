@@ -68,8 +68,8 @@ const Itemwrapper = styled.div`
 `;
 
 const ItemBox = styled.div`
-  width: 100%;
-  height: 100%;
+  width: 200px;
+  height: 200px;
   padding: 25px 25px 10px 25px;
   border-radius: 30px 30px 30px 0px;
   background: ${BoxFuneral};
