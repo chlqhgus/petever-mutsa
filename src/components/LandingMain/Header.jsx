@@ -5,7 +5,7 @@ import imageSrc from "../../assets/Images/person_with_pet.png";
 const Header = () => {
   return (
     <header className="header">
-      <div className="header-content">
+      <div className="header-content-landing">
         <div className="text-content">
           <div className="logo">
             PET:<span className="ever_highlight">EVER</span>

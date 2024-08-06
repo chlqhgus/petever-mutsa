@@ -5,7 +5,7 @@ import SuccessModal from "./SuccessModal";
 import UploadSection from "./UploadSection";
 import axios from "axios";
 import { instance } from "../../api/instance";
-const SubmitButton = () => {
+const   SubmitButton = () => {
   const location = useLocation();
   const isDiaryQuestion = location.pathname === "/diaryQuestion";
   const [isModalOpen, setIsModalOpen] = useState(false);

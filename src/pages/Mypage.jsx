@@ -4,17 +4,26 @@ import Posts from "../components/Mypage/Posts";
 import { instance } from "../api/instance";
 
 import "../styles/mypage/Background.css"; // 배경화면(그레이컬러) 임포트
+import { useNavigate } from "react-router-dom";
 
 const Mypage = () => {
   const [activeTab, setActiveTab] = useState("all"); // 현재 활성화된 탭
   const [posts, setPosts] = useState([]); // 해당 탭의 Data 가져오기(API)
-
+  const [isLogin, setIsLogin] = useState(false);
+  const nav = useNavigate();
+  useEffect(() => {
+    if (localStorage.getItem("accessToken")) {
+      setIsLogin(true);
+    } else {
+      alert("로그인 후 이용해주세요.");
+      nav("/login");
+    }
+  }, []);
   useEffect(() => {
     setPosts([]);
 
     const fetchPosts = async (tab) => {
-      const token = //로그인 토큰. 실제로는 localStorage에 있는 token을 가져옴
-        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzIyOTMxNzYyLCJpYXQiOjE3MjI5Mjk5NjIsImp0aSI6ImRlODc5YjA5MTVjMzQ0N2ZhZTY5YTI0YzZmNmU3YTAwIiwidXNlcl9pZCI6M30.UgIgoXkOvaz1g755emY_wkNV2vnsCFE16FeAXCLWd9k";
+      const token = localStorage.getItem("accessToken");
       if (!token) {
         console.error("Access token is missing");
         return;

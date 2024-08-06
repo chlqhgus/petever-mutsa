@@ -50,11 +50,9 @@ const FuneralLocationDetail = () => {
             </tr>
           </tbody>
         </table>
+        <div className="detail2">{title} &nbsp;카카오맵 상세 위치 </div>
+        <Kakaomap title={title} address={address}></Kakaomap>
       </div>
-      <div className="detail2">
-        지도 위의 핀 아이콘 클릭 시, 네이버 지도로 이동합니다.
-      </div>
-      <Kakaomap title={title} address={address}></Kakaomap>
     </div>
   );
 };

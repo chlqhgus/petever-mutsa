@@ -7,7 +7,7 @@
   margin-left: 7%;
 }
 
-.header-content {
+.header-content-landing {
   display: flex;
   padding-top: 210px;
   padding-left: 105px;
@@ -40,7 +40,7 @@
 }
 
 .hero {
-  color: var(--text, #150a08);
+  color: #150a08;
   font-family: "LINE Seed Sans KR";
   font-size: 40px;
   font-style: normal;
