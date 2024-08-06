@@ -1,6 +1,7 @@
 import "./FuneralLocationDetail.css";
 import { useLocation, useNavigate } from "react-router-dom";
 import caretleft from "../img/CaretLeft.png";
+import Kakaomap from "../components/funeral/Kakaomap";
 
 const FuneralLocationDetail = () => {
   const location = useLocation();
@@ -51,6 +52,9 @@ const FuneralLocationDetail = () => {
       </div>
       <div className="detail2">
         지도 위의 핀 아이콘 클릭 시, 네이버 지도로 이동합니다.
+      </div>
+      <div className="Map">
+        <Kakaomap></Kakaomap>
       </div>
     </div>
   );
