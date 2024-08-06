@@ -24,6 +24,7 @@ function Router() {
       </SideBarDiv>
       <PageDiv>
         <Routes>
+          <Route path="/" element={<LandingPage />}></Route>
           <Route path="/landingPage" element={<LandingPage />}></Route>
           <Route path="/diaryQuestion" element={<DiaryQuestion />}></Route>
           <Route path="/diaryLetter" element={<DiaryLetter />}></Route>
