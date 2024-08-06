@@ -29,6 +29,11 @@
   border: 1px solid #f26c51;
 }
 
+.LocationButton .isSelected {
+  color: #f26c51;
+  border: 1px solid #f26c51;
+}
+
 .postblock {
   padding: 60px 100px;
   display: flex;

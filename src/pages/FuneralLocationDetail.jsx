@@ -14,14 +14,15 @@ const FuneralLocationDetail = () => {
 
   return (
     <div className="container">
-      <div className="header">
+      <div className="location-detail-header">
         <img className="header-img" src={img} alt={title} />
-        <div className="header-content">
+        <div className="location-header-overlay"></div>
+        <div className="location-header-content">
           <div className="title">
             <img src={caretleft} className="careleft" onClick={onClickLeft} />
             <h1>{title}</h1>
           </div>
-          <p>{address}</p>
+          <p className="adress">{address}</p>
         </div>
       </div>
       <div className="main">
@@ -53,9 +54,7 @@ const FuneralLocationDetail = () => {
       <div className="detail2">
         지도 위의 핀 아이콘 클릭 시, 네이버 지도로 이동합니다.
       </div>
-      <div className="Map">
-        <Kakaomap title={title} address={address}></Kakaomap>
-      </div>
+      <Kakaomap title={title} address={address}></Kakaomap>
     </div>
   );
 };

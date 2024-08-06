@@ -42,7 +42,7 @@ const Kakaomap = ({ title, address }) => {
     });
   }, []);
 
-  return <div id="map" style={{ width: "80%", height: "400px" }}></div>; // 지도 스타일
+  return <div id="map" style={{ }}></div>; // 지도 스타일
 };
 
 export default Kakaomap;

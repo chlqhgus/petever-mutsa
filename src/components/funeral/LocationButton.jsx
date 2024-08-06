@@ -2,9 +2,10 @@ import { useEffect, useState } from "react";
 import "./LocationButton.css";
 import PostBlock from "../common/PostBlock";
 import { useNavigate } from "react-router-dom";
+import styled from "styled-components";
 
 const LocationButton = ({ mockData }) => {
-  const [area, setArea] = useState("");
+  const [area, setArea] = useState("수도권");
 
   const filteredMetropolitan = () => {
     return mockData.filter((location) => location.region === "수도권");
@@ -38,13 +39,16 @@ const LocationButton = ({ mockData }) => {
     <>
       <div className="LocationButton">
         <button
+          className={area === "수도권" ? "isSelected" : ""}
           onClick={() => {
+            setArea("수도권");
             setNewList(filteredMetropolitan());
           }}
         >
           수도권
         </button>
         <button
+          className={area === "강원권" ? "isSelected" : ""}
           onClick={() => {
             setArea("강원권");
             setNewList(filteredLocations());
@@ -53,6 +57,7 @@ const LocationButton = ({ mockData }) => {
           강원권
         </button>
         <button
+          className={area === "충청권" ? "isSelected" : ""}
           onClick={() => {
             setArea("충청권");
             setNewList(filteredLocations());
@@ -61,6 +66,7 @@ const LocationButton = ({ mockData }) => {
           충청권
         </button>
         <button
+          className={area === "영남권" ? "isSelected" : ""}
           onClick={() => {
             setArea("영남권");
             setNewList(filteredLocations());
@@ -69,6 +75,7 @@ const LocationButton = ({ mockData }) => {
           영남권
         </button>
         <button
+          className={area === "호남권" ? "isSelected" : ""}
           onClick={() => {
             setArea("호남권");
             setNewList(filteredLocations());
@@ -80,12 +87,14 @@ const LocationButton = ({ mockData }) => {
       <div className="postblock">
         {newList.map((item) => {
           return (
-            <PostBlock
-              img={item.image}
-              textMain={item.name}
-              textSub={item.address}
-              onClick={() => onClickButton(item)}
-            />
+            <Wrapper>
+              <PostBlock
+                img={item.image}
+                textMain={item.name}
+                textSub={item.address}
+                onClick={() => onClickButton(item)}
+              />
+            </Wrapper>
           );
         })}
       </div>
@@ -94,3 +103,10 @@ const LocationButton = ({ mockData }) => {
 };
 
 export default LocationButton;
+
+const Wrapper = styled.div`
+  > div {
+    width: 225px;
+    height: 225px;
+  }
+`;
