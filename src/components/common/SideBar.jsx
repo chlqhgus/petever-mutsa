@@ -70,7 +70,7 @@ const SideBar = () => {
             <IconWrapper
               width={isExtended ? "210px" : "50px"}
               onClick={() => {
-                nav("/");
+                nav("/funeralLocation");
               }}
             >
               <IconImg src={iconFuneral}></IconImg>

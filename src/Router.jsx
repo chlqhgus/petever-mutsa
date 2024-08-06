@@ -7,10 +7,16 @@ import MemorialNew from "./pages/MemorialNew";
 import styled from "styled-components";
 
 import LandingPage from "./pages/LandingPage";
+=import LandingPage from "./pages/LandingPage";
+import FuneralLocation from "./pages/FuneralLocation";
+import FuneralLocationDetail from "./pages/FuneralLocationDetail";
+import Login from "./pages/Login";
+import Signup from "./pages/Signup";
 
 function Router() {
   return (
     <BrowserRouter>
+
       <SideBarDiv>
         <SideBar></SideBar>
       </SideBarDiv>
@@ -22,6 +28,20 @@ function Router() {
           <Route path="/memorialDetail" element={<MemoralDetail />}></Route>
         </Routes>
       </PageDiv>
+      <SideBar></SideBar>
+      <Routes>
+        <Route path="/landingPage" element={<LandingPage />}></Route>
+        <Route path="/memorialMain" element={<MemorialMain />}></Route>
+        <Route path="/memorialNew" element={<MemorialNew />}></Route>
+        <Route path="/memorialDetail" element={<MemoralDetail />}></Route>
+        <Route path="/funeralLocation" element={<FuneralLocation />}></Route>
+        <Route
+          path="/funeralLocationDetail"
+          element={<FuneralLocationDetail />}
+        ></Route>
+        <Route path="/login" element={<Login />}></Route>
+        <Route path="/signup" element={<Signup />}></Route>
+      </Routes>
     </BrowserRouter>
   );
 }
