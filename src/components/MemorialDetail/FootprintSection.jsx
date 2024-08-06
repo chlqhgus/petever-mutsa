@@ -19,6 +19,7 @@ const FootprintSection = ({ data }) => {
               key={item.id}
               content={item.content}
               username={item.username}
+              date={item.created_at}
             ></FootprintItem>
           );
         })}

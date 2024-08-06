@@ -190,6 +190,10 @@ const InputWrapper = styled.div`
   }
   textarea {
     line-height: 1.5;
+    &:focus {
+      border: none;
+      outline:none
+    }
   }
 `;
 
