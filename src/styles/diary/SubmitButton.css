@@ -1,14 +1,20 @@
 /* styles/diary/Services.css */
 .submit-section {
-  margin-left: 7%;
-  padding-left: 1000px;
+  /* margin-left: 7%;
+  padding-left: 1000px; */
   padding-top: 20px;
 }
 
+/* .sectionWrapper {
+  width: 100%;
+} */
+
 .record-button {
-    margin-left:7%;
-    padding-left:1000px;
-    padding-top:10px;
+  /* margin-left: 7%;
+  padding-left: 1000px; */
+  padding-top: 10px;
+  text-align: right;
+  /* margin-right:110px; */
 }
 
 .record-button-pink {

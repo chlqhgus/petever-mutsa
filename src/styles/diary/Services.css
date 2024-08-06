@@ -1,11 +1,11 @@
 .service {
-  padding: 30px;
-  padding-bottom:20px;
+  /* padding: 30px; */
+  padding-bottom: 20px;
 }
 
 .service-contents {
-  margin-left: 7%;
-  padding-left: 64px;
+  /* margin-left: 7%; */
+  /* padding-left: 64px; */
   padding-bottom: 5px;
 }
 
@@ -18,7 +18,7 @@
   line-height: normal;
   letter-spacing: -0.5px;
 
-  padding-top: 15px;
+  padding-top: 30px;
   padding-bottom: 23px;
 }
 
@@ -30,6 +30,7 @@
   font-weight: 400;
   line-height: 22px; /* 142.105% */
   letter-spacing: -0.5px;
+  margin-bottom: 30px;
 }
 
 .accent2 {
